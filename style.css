@@ -1,0 +1,508 @@
+/* --- RESET E VARIÁVEIS GLOBAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-dark: #017EDA;
+    --color-light: #ffffff;
+    --color-grey-bg: #f9f9f9;
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.6;
+}
+
+/* Utilitários */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-center { text-align: center; }
+.section-padding { padding: 80px 0; }
+
+a { text-decoration: none; color: inherit; }
+
+/* --- ESTILOS DE BOTÕES --- */
+.btn {
+    display: inline-block;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-white {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+.btn-dark {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    border: 2px solid var(--color-dark);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-dark);
+    border: 2px solid var(--color-dark);
+}
+
+/* MUDANÇA: Estilos dos Novos Botões Sim/Não */
+.btn-yes {
+    background-color: var(--color-dark); /* Usa o azul da sua marca */
+    color: white;
+    border: none;
+    z-index: 2;
+}
+
+.btn-no {
+    background-color: var(--color-light); /* Fundo Branco */
+    color: var(--color-dark);             /* Texto Azul */
+    border: 2px solid var(--color-dark);  /* A BORDA AZUL ESTÁ AQUI */
+}
+
+.btn:hover { opacity: 0.8; transform: translateY(-2px); }
+
+/* --- CABEÇALHO (Header) --- */
+.header {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 20px 0;
+    position: fixed; 
+    z-index: 999;
+    width: 100%
+
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Novo estilo para a imagem da logo */
+.logo-img {
+    height: 40px; 
+    width: auto;  
+    display: block; 
+    /* ADICIONE ISSO PARA SUAVIZAR: */
+    transition: transform 0.3s ease;
+    cursor: pointer; /* Mostra a mãozinha */
+}
+
+/* NOVO: Efeito quando passa o mouse */
+.logo-img:hover {
+    /* Inclina levemente e aumenta 5% */
+    transform: rotate(-3deg) scale(1.05);
+    /* Opcional: se quiser um brilho em volta */
+    /* filter: drop-shadow(0 0 5px rgba(255,255,255,0.5)); */
+}
+
+.nav-links a {
+    margin: 0 20px;
+    font-size: 14px;
+}
+.nav-links a:hover { opacity: 0.8; }
+
+/* --- HERO SECTION --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 150px;
+    padding-bottom: 80px;
+    gap: 50px;
+}
+
+.hero-text { flex: 1; }
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 400px;
+}
+
+/* MUDANÇA: Adicionei Position Relative aqui */
+.hero-buttons { 
+    display: flex; 
+    gap: 15px; 
+    position: relative; 
+}
+
+/* Área da Imagem Hero com sobreposição */
+.hero-image-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilo atual da foto */
+.main-photo {
+    max-width: 400px; 
+    width: 90%; 
+    border-radius: 20px;
+    height: auto; 
+    object-fit: cover;
+    
+    /* MUDANÇA AQUI: Vamos usar uma sombra que muda e a transição */
+    box-shadow: 20px 20px 0px rgba(0,0,0,0.05); /* Sombra original chapada */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transição com um leve "pulo" */
+}
+
+/* NOVO: Efeito quando passa o mouse */
+.main-photo:hover {
+    /* A foto sobe 10 pixels e inclina um pouquinho */
+    transform: translateY(-10px) rotate(1deg);
+    
+    /* A sombra fica mais distante, maior e mais suave, dando profundidade */
+    box-shadow: 30px 35px rgba(0,0,0,0.1);
+}
+
+/* --- ESTILO BASE DO BALÃO (Corpo) --- */
+.floating-tag {
+    position: absolute;
+    background-color: #DB3733; 
+    color: var(--color-light);
+    padding: 12px 24px;
+    border-radius: 25px;     
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(124, 124, 124, 0.3);
+    
+    /* ADICIONE ISSO PARA SUAVIZAR: */
+    transition: all 0.3s ease;
+    cursor: default; /* O cursor normal, já que não é um link */
+}
+
+/* NOVO: Efeito quando passa o mouse */
+.floating-tag:hover {
+    /* Sobe 8 pixels */
+    transform: translateY(-8px);
+    /* Aumenta a sombra para parecer que está mais alto */
+   
+}
+
+/* --- CONFIGURAÇÃO COMUM DO "RABINHO" --- */
+.floating-tag::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); 
+    border-style: solid;
+    border-width: 10px;
+}
+
+/* --- POSIÇÃO 1 (Lado Esquerdo da foto) --- */
+.pos-1 {
+    top: 20%;
+    left: -20px; 
+}
+
+.pos-1::after {
+    right: -13px; 
+    bottom: 45px;
+    transform: rotate(20deg);
+    border-color: transparent transparent transparent #DB3733;
+}
+
+/* --- POSIÇÃO 2 e 3 (Lado Direito da foto) --- */
+.pos-2 {
+    bottom: 15%;
+    right: -20px;
+}
+
+.pos-3 {
+    top: 10%;
+    right: -10px;
+}
+
+.pos-2::after,
+.pos-3::after {
+    left: -13px; 
+    bottom: 45px;
+    transform: rotate(-20deg);
+    border-color: transparent #DB3733 transparent transparent;
+}
+
+/* --- FAIXA INCLINADA (Marquee) --- */
+.marquee-container {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 15px 0;
+    overflow: hidden;
+    transform: rotate(-2deg) scale(1.05); 
+    margin: 50px 30px;
+}
+
+.marquee-content {
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- SERVIÇOS --- */
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+.section-header p {
+    color: #666;
+    margin-bottom: 25px;
+}
+.header-btn { margin-bottom: 60px; }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    column-gap: 80px;
+    row-gap: 40px;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.service-item h3 { font-size: 1.4rem; font-weight: 500; }
+
+.rotate-arrow {
+    font-size: 24px;
+    transform: rotate(45deg); 
+    transition: transform 0.3s;
+}
+.service-item:hover .rotate-arrow { transform: rotate(45deg) translate(5px, -5px); }
+
+/* --- PROJETOS RECENTES --- */
+.projects h2 { margin-bottom: 50px; font-size: 2.5rem; }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; 
+    grid-template-rows: repeat(2, 300px); 
+    gap: 25px;
+}
+
+.project-item {
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.project-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.3s;
+}
+.project-item:hover img { transform: scale(1.05); }
+
+.item-1 { grid-row: 1 / 3; } 
+
+/* --- RODAPÉ (Novo Design) --- */
+.footer {
+    background-color: var(--color-dark); /* Usa o Azul da sua marca */
+    color: var(--color-light);           /* Texto Branco */
+    padding: 60px 0;                     /* Espaçamento em cima e embaixo */
+    text-align: center;                  /* Centraliza tudo */
+    margin-top: auto;                    /* Garante que fique no fundo */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Empilha: Ícones em cima, Texto embaixo */
+    align-items: center;
+    gap: 30px; /* Espaço entre os ícones e o texto */
+}
+
+/* --- Ícones das Redes Sociais --- */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Espaço entre cada ícone */
+}
+
+.social-links a {
+    color: var(--color-light);
+    font-size: 32px; /* Tamanho dos ícones */
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Efeito ao passar o mouse no ícone */
+.social-links a:hover {
+    opacity: 0.8; /* Fica transparente */
+    transform: translateY(-5px); /* Sobe um pouquinho (pulo) */
+    color: #ffffff;
+}
+
+/* --- Texto de Copyright --- */
+.copyright p {
+    font-size: 14px;
+    font-weight: 300; /* Letra mais fina */
+    opacity: 0.6;     /* Mais suave que os ícones */
+    letter-spacing: 0.5px;
+}
+
+/* Ajuste para celular (Mobile) */
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 0;
+    }
+    .social-links a {
+        font-size: 28px; /* Ícones um pouco menores no celular */
+    }
+}
+/* Oculta o ícone do menu no computador */
+.hamburger { display: none; }
+
+/* --- RESPONSIVIDADE (Mobile) --- */
+@media (max-width: 768px) {
+    
+    .hamburger {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        color: var(--color-light);
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px; 
+        left: 0;
+        width: 100%;
+        background-color: #111111; 
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        gap: 30px;
+        display: none; 
+        z-index: 1000; 
+        border-bottom: 1px solid #333;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active {
+        display: flex;
+        animation: descidaSuave 0.3s ease;
+    }
+
+    .nav-links a {
+        color: #ffffff !important; 
+        font-size: 20px; 
+        opacity: 1;
+    }
+    
+    .hero { flex-direction: column; text-align: center; padding-top: 40px;}
+    .hero-text h1 { font-size: 2.5rem; }
+    
+    /* MUDANÇA: Ajuste dos botões no celular */
+    .hero-buttons { 
+        justify-content: center; 
+        flex-direction: column; 
+        width: 100%;
+    }
+    .btn-no { width: 100%; } /* Botão não ocupa largura toda */
+
+    .floating-tag { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .projects-grid { display: flex; flex-direction: column; }
+    .project-item { height: 300px; }
+    .footer-content { flex-direction: column; text-align: center; gap: 20px; }
+    
+    .header .btn-white { display: none; }
+}
+
+@keyframes descidaSuave {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- ESTILOS DO MODAL PERSONALIZADO --- */
+
+/* O fundo escuro que cobre a tela inteira */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Preto meio transparente */
+    z-index: 2000; /* Fica na frente de TUDO, até do menu */
+    
+    /* Flexbox para centralizar a caixinha no meio da tela */
+    display: none; /* ESCONDIDO POR PADRÃO */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Quando o JS adicionar essa classe, ele aparece */
+.modal-overlay.show {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+/* A caixinha branca do pop-up */
+.modal-content {
+    background-color: var(--color-light);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 400px; /* Largura máxima */
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    
+    /* Animação de "pulo" quando abre */
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+/* Completa a animação de pulo quando abre */
+.modal-overlay.show .modal-content {
+    transform: scale(1);
+}
+
+/* Estilos do texto dentro do modal */
+.modal-content h3 {
+    color: var(--color-dark);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Pequena animação de Fade In */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
