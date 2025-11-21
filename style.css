@@ -12,16 +12,25 @@
     --font-family: 'Poppins', sans-serif;
 }
 
-/* CORREÇÃO DO VAZIO LATERAL */
-html, body {
+/* CORREÇÃO DO VAZIO LATERAL (A TRAVA DEFINITIVA) */
+html {
+    width: 100%;
+    overflow-x: hidden; /* Impede a rolagem no nível mais alto */
+}
+
+body {
     font-family: var(--font-family);
     background-color: var(--color-light);
     color: var(--color-dark);
     line-height: 1.6;
+    
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden; 
-    padding-top: 40px; 
+    overflow-x: hidden; /* Reforça a trava no corpo do site */
+    position: relative; /* Ajuda a conter elementos absolutos */
+    
+    /* Espaço para o conteúdo não ficar atrás do menu fixo */
+    padding-top: 90px; 
 }
 
 /* Utilitários */
@@ -75,8 +84,8 @@ a { text-decoration: none; color: inherit; }
 /* Botão NÃO (Outline) */
 .btn-no {
     background-color: var(--color-light); 
-    color: var(--color-dark);             
-    border: 2px solid var(--color-dark);  
+    color: #DB3733;             
+    border: 2px solid #DB3733;  
     transition: all 0.3s ease-out; 
     position: relative;
     z-index: 1;
@@ -114,7 +123,6 @@ a { text-decoration: none; color: inherit; }
     cursor: pointer; 
 }
 
-/* MUDANÇA AQUI: Efeito funciona com Hover OU com a classe mobile-effect */
 .logo-img:hover, .logo-img.mobile-effect {
     transform: rotate(-3deg) scale(1.05);
 }
@@ -139,8 +147,8 @@ a { text-decoration: none; color: inherit; }
 .hero-text { flex: 1; }
 
 .hero-text h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-size: 2.7rem;
+    font-weight: 800;
     line-height: 1.1;
     margin-bottom: 20px;
 }
@@ -170,12 +178,10 @@ a { text-decoration: none; color: inherit; }
     border-radius: 20px;
     height: auto; 
     object-fit: cover;
-    margin-top: 30px;
     box-shadow: 20px 20px 0px rgba(0,0,0,0.05); 
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transição mais lenta e suave */
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
-/* MUDANÇA AQUI: Efeito funciona com Hover OU com a classe mobile-effect */
 .main-photo:hover, .main-photo.mobile-effect {
     transform: translateY(-10px) rotate(1deg);
     box-shadow: 30px 35px 0px rgba(0,0,0,0.1);
@@ -193,11 +199,10 @@ a { text-decoration: none; color: inherit; }
     white-space: nowrap;
     z-index: 10;
     box-shadow: 0 10px 20px rgba(124, 124, 124, 0.3); 
-    transition: all 0.5s ease; /* Transição suave */
+    transition: all 0.5s ease; 
     cursor: default; 
 }
 
-/* MUDANÇA AQUI: Efeito funciona com Hover OU com a classe mobile-effect */
 .floating-tag:hover, .floating-tag.mobile-effect {
     transform: translateY(-8px);
 }
@@ -243,13 +248,13 @@ a { text-decoration: none; color: inherit; }
 .marquee-content {
     white-space: nowrap;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* --- SERVIÇOS --- */
-.section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
+/* --- SERVIÇOS (AJUSTADO PARA NOVA COPY) --- */
+.section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
 .section-header p { color: #666; margin-bottom: 25px; }
 .header-btn { margin-bottom: 60px; }
 
@@ -261,16 +266,26 @@ a { text-decoration: none; color: inherit; }
 }
 
 .service-item {
-    display: flex; justify-content: space-between; align-items: center;
-    padding-bottom: 20px; border-bottom: 1px solid #ddd; cursor: pointer;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; /* Alinha no topo para caber o texto embaixo */
+    padding-bottom: 20px; 
+    border-bottom: 1px solid #ddd; 
+    cursor: pointer;
 }
 
-.service-item h3 { font-size: 1.4rem; font-weight: 500; }
+/* Ajuste para o texto ficar bonito */
+.service-item div {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.service-item h3 { font-size: 1.4rem; font-weight: 600; }
 .rotate-arrow { font-size: 24px; transform: rotate(45deg); transition: transform 0.3s; }
 .service-item:hover .rotate-arrow { transform: rotate(45deg) translate(5px, -5px); }
 
 /* --- PROJETOS RECENTES --- */
-.projects h2 { margin-bottom: 50px; font-size: 2.5rem; }
+.projects h2 { margin-bottom: 10px; font-size: 2.5rem; }
 .projects-grid {
     display: grid; grid-template-columns: 1.5fr 1fr; 
     grid-template-rows: repeat(2, 300px); gap: 25px;
@@ -279,6 +294,31 @@ a { text-decoration: none; color: inherit; }
 .project-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
 .project-item:hover img { transform: scale(1.05); }
 .item-1 { grid-row: 1 / 3; } 
+
+/* --- NOVA SEÇÃO: CTA FINAL (NEW!) --- */
+.cta-box {
+    background-color: #f4f4f4; 
+    padding: 80px 20px;
+    border-radius: 30px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.cta-box h2 {
+    font-size: 2.5rem;
+    max-width: 700px;
+    line-height: 1.2;
+    color: var(--color-dark);
+}
+
+.btn-lg {
+    padding: 15px 40px;
+    font-size: 18px;
+    background-color: #DB3733;
+}
 
 /* --- RODAPÉ --- */
 .footer {
@@ -304,8 +344,7 @@ a { text-decoration: none; color: inherit; }
         position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
     }
     .nav-links {
-        position: absolute; top: 70px; left: 0; width: 100%; background-color: #DB3733; 
-        border-radius: 50px;     
+        position: absolute; top: 70px; left: 0; width: 100%; background-color: #017EDA; 
         flex-direction: column; align-items: center; padding: 40px 0; gap: 30px;
         display: none; z-index: 1000; border-top: 1px solid rgba(255,255,255,0.1);
         box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -314,27 +353,25 @@ a { text-decoration: none; color: inherit; }
     .nav-links a { color: #ffffff !important; font-size: 20px; opacity: 1; }
     .header .btn-white { display: none; }
     
-    /* REDUZI o espaço superior da Hero */
+    /* Hero Mobile */
     .hero { 
         flex-direction: column; 
         text-align: center; 
-        padding-top: 20px; /* Reduzi de 60px para 20px */
-        gap: 20px;         /* Reduzi o gap */
+        padding-top: 20px; 
+        gap: 20px;
     }
     
     .hero-text h1 { font-size: 2.2rem; line-height: 1.2; }
 
-    /* REDUZI o espaço entre texto e botões */
+    /* Espaço entre texto e botões */
     .hero-text p {
-        margin-bottom: 30px; /* Reduzi de 50px para 30px */
+        margin-bottom: 30px; 
         font-size: 1.1rem;
     }
     
     .hero-buttons { 
         justify-content: center; flex-direction: column; align-items: center; 
         width: 100%; padding: 0 20px; gap: 15px;
-        
-        /* TRUQUE PARA A FOTO NÃO SUBIR: Reserva espaço fixo para os botões */
         min-height: 110px; 
     }
     
@@ -367,6 +404,9 @@ a { text-decoration: none; color: inherit; }
     .services-grid { grid-template-columns: 1fr; }
     .projects-grid { display: flex; flex-direction: column; }
     .project-item { height: 300px; }
+    
+    /* Ajuste do CTA no mobile */
+    .cta-box h2 { font-size: 1.8rem; }
 }
 
 @keyframes descidaSuave {
