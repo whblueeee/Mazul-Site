@@ -229,30 +229,54 @@ a { text-decoration: none; color: inherit; }
     border-color: transparent #DB3733 transparent transparent;
 }
 
-/* --- FAIXA INCLINADA (Marquee) --- */
+/* --- FAIXA INCLINADA (MARQUEE) --- */
 .marquee-container {
     background-color: var(--color-dark);
     color: var(--color-light);
     padding: 15px 0;
-    overflow: hidden;
+    overflow: hidden; /* Esconde o que sai da tela */
     transform: rotate(-2deg);
     margin: 60px 0;
+    
+    /* Garante que a faixa seja maior que a tela para não cortar */
     width: 110vw;        
     margin-left: -5vw;   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
 .marquee-content {
-    white-space: nowrap;
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    display: flex;
+    /* "max-content" faz a div ter a largura exata do texto inteiro, sem quebrar linha */
+    width: max-content; 
+    
+    /* AQUI ESTÁ A MÁGICA: */
+    /* 20s = tempo da volta completa (quanto menor, mais rápido) */
+    /* linear = velocidade constante (sem acelerar/frear) */
+    /* infinite = nunca para */
+    animation: marquee-loop 20s linear infinite;
 }
 
+.marquee-content span {
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Adiciona um espaço no final para quando o loop reiniciar não colar o texto */
+    padding-right: 50px; 
+}
+
+/* A ANIMAÇÃO (O Motor do Loop) */
+@keyframes marquee-loop {
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        /* Move a faixa para a esquerda exatamente METADE do seu tamanho. */
+        /* Como o texto está duplicado, a metade é exatamente o ponto de reinício. */
+        transform: translateX(-50%); 
+    }
+}
 /* --- SERVIÇOS (AJUSTADO PARA NOVA COPY) --- */
 .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
 .section-header p { color: #666; margin-bottom: 25px; }
