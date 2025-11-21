@@ -305,7 +305,7 @@ a { text-decoration: none; color: inherit; }
     }
     .nav-links {
         position: absolute; top: 70px; left: 0; width: 100%; background-color: #DB3733; 
-        border-radius: 50px;
+        border-radius: 50px;     
         flex-direction: column; align-items: center; padding: 40px 0; gap: 30px;
         display: none; z-index: 1000; border-top: 1px solid rgba(255,255,255,0.1);
         box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -314,14 +314,30 @@ a { text-decoration: none; color: inherit; }
     .nav-links a { color: #ffffff !important; font-size: 20px; opacity: 1; }
     .header .btn-white { display: none; }
     
-    .hero { flex-direction: column; text-align: center; padding-top: 60px; gap: 30px; }
+    /* REDUZI o espaço superior da Hero */
+    .hero { 
+        flex-direction: column; 
+        text-align: center; 
+        padding-top: 20px; /* Reduzi de 60px para 20px */
+        gap: 20px;         /* Reduzi o gap */
+    }
+    
     .hero-text h1 { font-size: 2.2rem; line-height: 1.2; }
-    .hero-text p { margin-bottom: 50px; font-size: 1.1rem; }
+
+    /* REDUZI o espaço entre texto e botões */
+    .hero-text p {
+        margin-bottom: 30px; /* Reduzi de 50px para 30px */
+        font-size: 1.1rem;
+    }
     
     .hero-buttons { 
         justify-content: center; flex-direction: column; align-items: center; 
         width: 100%; padding: 0 20px; gap: 15px;
+        
+        /* TRUQUE PARA A FOTO NÃO SUBIR: Reserva espaço fixo para os botões */
+        min-height: 110px; 
     }
+    
     .btn { padding: 10px 24px; font-size: 14px; width: 100%; max-width: 300px; }
     .btn-no { width: auto; min-width: 200px; }
 
