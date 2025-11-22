@@ -30,7 +30,7 @@ body {
     position: relative; /* Ajuda a conter elementos absolutos */
     
     /* Espaço para o conteúdo não ficar atrás do menu fixo */
-    padding-top: 90px; 
+    padding-top: 70px; 
 }
 
 /* Utilitários */
@@ -346,11 +346,17 @@ a { text-decoration: none; color: inherit; }
 
 /* --- RODAPÉ --- */
 .footer {
-    background-color: var(--color-dark); color: var(--color-light);
-    padding: 60px 0; text-align: center; margin-top: auto;
+    background-color: var(--color-dark); 
+    color: var(--color-light);
+    padding: 60px 0; 
+    text-align: center; 
+    margin-top: auto;
 }
 .footer-content {
-    display: flex; flex-direction: column; align-items: center; gap: 30px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 30px;
 }
 .social-links { display: flex; justify-content: center; gap: 25px; }
 .social-links a { color: var(--color-light); font-size: 32px; transition: all 0.3s ease; }
@@ -488,3 +494,544 @@ a { text-decoration: none; color: inherit; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 .modal-content p { margin-bottom: 40px; color: #666; }
+
+/* --- ESTILO DO BLOG (MAGAZINE STYLE) --- */
+
+/* Container Principal */
+.magazine-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #017EDA;
+}
+
+/* Cabeçalho do Blog "BIG TITLE" */
+.magazine-header {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.big-title {
+    font-size: 12vw; /* Gigante e responsivo */
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+/* Categorias (Botões ovais do topo) */
+.categories {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.categories span {
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #017EDA; /* Cor do texto "CATEGORIAS:" */
+}
+
+/* --- CSS ATUALIZADO PARA AS CATEGORIAS --- */
+
+.cat-pill {
+    text-decoration: none;
+    /* Removi o background-color fixo daqui */
+    border-radius: 50px;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+/* Cores específicas para o cabeçalho */
+
+/* Arquitetura (Azul) */
+.cat-pill.cat-azul {
+    background-color: #017EDA;
+}
+.cat-pill.cat-azul:hover {
+    background-color: #0056b3; /* Azul mais escuro no hover */
+}
+
+/* Interiores (Vermelho) */
+.cat-pill.cat-vermelho {
+    background-color: #DB3733;
+}
+.cat-pill.cat-vermelho:hover {
+    background-color: #b12d2a; /* Vermelho mais escuro no hover */
+}
+
+/* Dicas (Cinza ou outra cor) */
+.cat-pill.cat-cinza {
+    background-color: #212121;
+}
+.cat-pill.cat-cinza:hover {
+    background-color: #080808;
+}
+
+/* Dicas (Cinza ou outra cor) */
+.cat-pill.cat-amarelo {
+    background-color: #ffe81c;
+}
+.cat-pill.cat-amarelo:hover {
+    background-color: #e0d130;
+}
+/* --- GRADE E CARDS (ALTERADO PARA OVAL) --- */
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Espaço entre os cards */
+    border: none; /* Sem borda na grade geral */
+    margin-bottom: 40px;
+}
+
+/* O Cartão do Post */
+.post-card {
+    /* Borda completa e arredondada */
+    border: 1px solid #e9e9e9; 
+    border-radius: 40px; /* Deixa oval */
+    overflow: hidden; /* Garante que a imagem não saia da borda redonda */
+    
+    padding: 0; /* Zero padding para a imagem colar nas bordas */
+    display: flex;
+    flex-direction: column;
+    background: #fbfbfb;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px); /* Sobe um pouco */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Imagem */
+.post-image img {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover; 
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Ajuste de espaçamento interno do texto (já que tiramos o padding do card) */
+.post-card h2, 
+.post-card p, 
+.post-footer {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* Meta dados (Data e Tag) */
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px 0 25px; /* Espaçamento interno específico */
+    margin-bottom: 15px;
+    font-size: 0.75rem;
+    color: #017EDA; /* Cor da data (azul para aparecer no fundo branco) */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- TAGS COLORIDAS --- */
+
+/* Estilo Base da Tag */
+.tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+/* Cores Específicas - Use essas classes no HTML */
+.tag-azul {
+    background-color: #017EDA;
+}
+
+.tag-vermelho {
+    background-color: #DB3733;
+}
+
+.tag-amarelo {
+    background-color: #ffe81c;
+}
+
+.tag-cinza {
+    background-color: #212121;
+}
+
+/* Títulos e Texto */
+.post-card h2 {
+    font-size: 1.5rem;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #017EDA;
+}
+
+.post-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 30px;
+    flex-grow: 1; 
+}
+
+/* Rodapé do card */
+.post-footer {
+    font-size: 0.75rem;
+    color: #017EDA;
+    border-top: 1px solid #eee; /* Linha separadora interna */
+    padding-top: 15px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .big-title {
+        font-size: 15vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .posts-grid {
+        grid-template-columns: 1fr; 
+    }
+    .post-card {
+        border-radius: 30px; /* Um pouco menos redondo no celular */
+    }
+}
+
+/* ================================================================= */
+/* PÁGINA DO ARTIGO COMPLETA (FINAL)                    */
+/* ================================================================= */
+
+/* --- 1. BOTÃO VOLTAR FLUTUANTE --- */
+.floating-back-btn {
+    position: fixed;
+    top: 100px; /* Logo abaixo do menu */
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 99; /* Fica acima de quase tudo */
+    color: #017EDA;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.floating-back-btn:hover {
+    background-color: #017EDA;
+    color: white;
+    transform: translateX(-5px);
+}
+
+/* --- 2. HERO PARALLAX (Frankenstein) --- */
+.parallax-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Tela cheia */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111; /* Fundo preto de segurança */
+}
+
+.parallax-hero .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permite o scroll funcionar em cima da imagem */
+}
+
+/* Camada 1: Fundo */
+.layer-bg {
+    z-index: 1;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+/* Camada 2: Título (Fica no meio) */
+.layer-title {
+    z-index: 2;
+    object-fit: contain;
+    transform: scale(0.85); /* Ajuste o tamanho do título aqui */
+}
+
+/* Camada 3: Frankenstein (Fica na frente) */
+.layer-frank {
+    z-index: 3; 
+    object-fit: contain;
+    top: 10%; /* Começa um pouco mais para baixo */
+    height: 110% !important; /* Sobra altura para ele poder subir */
+}
+
+/* Degradê para suavizar a base hero-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to top, #fff 10%, transparent);
+    z-index: 4;
+}*/
+
+/* --- 3. ESTRUTURA DO CONTEÚDO (WRAPPER) --- */
+.article-content-wrapper {
+    position: relative;
+    z-index: 10; /* Fica acima da Hero */
+    background: #fff;
+    margin-top: -50px; /* Efeito de sobreposição */
+    border-radius: 30px 30px 0 0;
+    padding-bottom: 50px;
+}
+
+.article-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: 60px 1fr; /* Sidebar + Texto */
+    gap: 40px;
+}
+
+/* --- 4. SIDEBAR E REDES SOCIAIS --- */
+.social-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: sticky;
+    top: 150px;
+    height: fit-content;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: #f0f2f5;
+    color: #333;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-icon:hover {
+    background: #017EDA;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* --- 5. TIPOGRAFIA E ELEMENTOS DO TEXTO --- */
+.article-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* Meta do Autor */
+.author-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.author-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info strong {
+    display: block;
+    color: #000;
+    font-size: 1rem;
+}
+
+.author-info span {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* Títulos H2 e H3 */
+.highlight-blue {
+    color: #017EDA;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.article-body h3 {
+    color: #017EDA;
+    font-weight: 600;
+    margin-top: 30px;
+    font-size: 1.4rem;
+}
+
+/* Citação Destacada (Quote) */
+.article-quote {
+    border-left: 4px solid #DB3733; /* Vermelho */
+    padding-left: 20px;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #333;
+    margin: 40px 0;
+    background: #fff5f5; /* Fundo levemente avermelhado */
+    padding: 30px;
+    border-radius: 0 10px 10px 0;
+}
+
+/* Imagens dentro do texto */
+.article-image-container img {
+    width: 100%;
+    border-radius: 20px;
+    margin: 30px 0 10px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* --- 6. CALL TO ACTION (CTA) --- */
+.article-cta {
+    background-color: #f9f9f9;
+    padding: 80px 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.cta-content h2 {
+    color: #017EDA;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #DB3733; /* Vermelho */
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(219, 55, 51, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #b52a27;
+    transform: scale(1.05);
+}
+
+/* --- 7. RESPONSIVIDADE (MOBILE) --- */
+@media (max-width: 768px) {
+    /* Ajuste do Parallax no celular */
+    .parallax-hero { height: 80vh; }
+    .layer-title { transform: scale(1.2); top: -10%; }
+    .layer-frank { height: 85% !important; top: 20%; }
+    
+    /* Layout do Texto */
+    .article-container {
+        grid-template-columns: 1fr; /* Remove a coluna da sidebar */
+        padding: 40px 20px;
+    }
+    
+    .social-sidebar {
+        flex-direction: row; /* Ícones deitados */
+        position: static;
+        margin-bottom: 30px;
+        justify-content: flex-start;
+    }
+    
+    .floating-back-btn {
+        top: auto;
+        bottom: 30px; /* Vai para baixo no celular */
+        left: 20px;
+        background: #017EDA;
+        color: white;
+    }
+}
+
+/* --- BOTÃO VOLTAR AO TOPO (Canto Inferior Direito) --- */
+
+#backToTop {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #017EDA; /* Azul da marca */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Deixa redondo */
+    cursor: pointer;
+    font-size: 24px; /* Tamanho da setinha */
+    
+    /* Centralizar o ícone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000; /* Garante que fique na frente de tudo */
+    
+    /* Efeito de aparecer/desaparecer */
+    opacity: 0; 
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Classe que o JavaScript adiciona quando rola a página */
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Efeito ao passar o mouse */
+#backToTop:hover {
+    background-color: #0056b3; /* Azul mais escuro */
+    transform: translateY(-5px); /* Sobe um pouquinho */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Ajuste para Celular */
+@media (max-width: 768px) {
+    #backToTop {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}

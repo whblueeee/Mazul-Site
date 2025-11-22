@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua marca parece o Frankenstein? - Blog Marcella Mazul</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- MENU (Fixo e Transparente no topo) -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo trasnp.png" alt="Logo Marcella Mazul" class="logo-img">
+                </a>
+            </div>
+            <div class="hamburger" id="menu-icon">
+                <i class='bx bx-menu'></i>
+            </div>
+            <nav class="nav-links" id="nav-menu">
+                <a href="index.html#sobre">Sobre</a>
+                <a href="index.html#servicos">Serviços</a>
+                <a href="index.html#projetos">Projetos</a>
+                <a href="blog.html" class="active">Blog</a> 
+            </nav>
+            <a href="https://api.whatsapp.com/send/?phone=5534920005345" class="btn btn-white">Começar projeto</a>
+        </div>
+    </header>
+
+    <!-- BOTÃO VOLTAR -->
+    <a href="blog.html" class="floating-back-btn"><i class='bx bx-arrow-back'></i></a>
+
+    <!-- A HERO SECTION MÁGICA -->
+    <section class="parallax-hero">
+        
+        <!-- CAMADA 1: FUNDO (Fica lá trás parado) -->
+        <img src="fundo.png" class="layer layer-bg" id="layerBg" alt="Fundo Gótico">
+        
+        <!-- CAMADA 2: TÍTULO (Fica no meio) -->
+        <!-- Dica: Use um PNG com o texto branco/bege já recortado -->
+        <img src="titulo.png" class="layer layer-title" id="layerTitle" alt="Sua marca parece o Frankenstein?">
+        
+        <!-- CAMADA 3: FRANKENSTEIN (Fica na frente de tudo) -->
+        <img src="frank.png" class="layer layer-frank" id="layerFrank" alt="Frankenstein">
+        
+        <!-- DEGRADÊ (Para suavizar a transição pro texto branco embaixo) -->
+        <div class="hero-gradient"></div>
+
+    </section>
+
+    <!-- CONTEÚDO DO TEXTO (Fundo Branco que sobe cobrindo a hero) -->
+    <div class="article-content-wrapper">
+        <div class="article-container">
+            
+            <!-- Sidebar Lateral -->
+            <aside class="social-sidebar">
+                <a href="#" class="social-icon"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="social-icon"><i class='bx bxl-whatsapp'></i></a>
+            </aside>
+
+            <!-- Texto do Artigo -->
+            <main class="article-body">
+                <div class="author-meta">
+                    <img src="https://via.placeholder.com/50" alt="Foto Marcella" class="author-img">
+                    <div class="author-info">
+                        <strong>Marcella Mazul</strong>
+                        <span>Nov, 2025 • 4 min de leitura</span>
+                    </div>
+                </div>
+
+            <h2 class="highlight-blue">O erro invisível que afasta seus clientes ideais</h2>
+            
+            <p>Novembro de 2025 chegou e não se fala em outra coisa: a nova adaptação de Frankenstein por Guillermo del Toro. A estética gótica, o drama, a profundidade... tudo isso está em alta.</p>
+            
+            <p>Mas, enquanto assistia ao filme, não consegui deixar de notar uma semelhança dolorosa com o que vejo todos os dias no mercado criativo.</p>
+            
+            <!-- Citação em destaque -->
+            <blockquote class="article-quote">
+                "Muitos empreendedores geniais costuram partes diferentes esperando criar vida, mas acabam criando monstros."
+            </blockquote>
+
+            <p>Se você sente que seu conteúdo é de PhD, mas sua estética parece "trabalho de escola", este artigo é para você.</p>
+
+            <!-- Imagem no meio do texto -->
+            <figure class="article-image-container">
+                <img src="https://images.unsplash.com/photo-1499343245400-cddc78a01317?q=80&w=1000&auto=format&fit=crop" alt="Frankenstein Visual">
+                <figcaption>Fonte: Pexels / Visual Reference</figcaption>
+            </figure>
+
+            <h3 class="highlight-blue">A Síndrome da Costura Criativa</h3>
+            <p>Como nasce um monstro? Na história original, Victor Frankenstein pega partes diferentes — um braço forte, uma perna funcional, um cérebro "anormal" — e costura tudo na esperança de criar vida perfeita.</p>
+            
+            <p>No Instagram, o processo é assustadoramente parecido:</p>
+            <ul class="custom-list">
+                <li><strong>1.</strong> Você pega um template "bonitinho" no Canva.</li>
+                <li><strong>2.</strong> Mistura com uma fonte que viu no Pinterest e achou chique.</li>
+                <li><strong>3.</strong> Joga uma cor que "sentiu" na hora.</li>
+                <li><strong>4.</strong> Costura tudo e reza para o algoritmo dar vida.</li>
+            </ul>
+
+            <p>O resultado? Um Frankenstein Visual. Tem vida? Tem. Funciona? Sim. Mas a aparência é desconexa, confusa e, muitas vezes, amadora. Falta aquela coerência que faz os olhos do cliente descansarem.</p>
+
+        </main>
+    </div>
+</div>
+    <!-- SEÇÃO CTA (CHAMADA PARA AÇÃO) -->
+    <section class="article-cta">
+        <div class="cta-content">
+            <h2>Conheça os serviços do Estúdio Mazul e agende seu diagnóstico.</h2>
+            <a href="https://api.whatsapp.com/send/?phone=5534920005345" class="cta-button">Agendar Agora!</a>
+        </div>
+    </section>
+      <!-- BOTÃO VOLTAR AO TOPO -->
+    <button id="backToTop" title="Voltar ao topo">
+        <i class='bx bx-chevron-up'></i>
+    </button>
+    <!-- RODAPÉ -->
+       <footer class="footer">
+        <p>&copy; 2025 Marcella Mazul. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

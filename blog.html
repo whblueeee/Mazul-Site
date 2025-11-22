@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Marcella Mazul</title>
+    <!-- Links de Estilo -->
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- ========================================= -->
+    <!--             INÍCIO DO HTML                -->
+    <!-- ========================================= -->
+
+    <!-- MENU DO SITE -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo trasnp.png" alt="Logo Marcella Mazul" class="logo-img">
+                </a>
+            </div>
+            <div class="hamburger" id="menu-icon">
+                <i class='bx bx-menu'></i>
+            </div>
+            <nav class="nav-links" id="nav-menu">
+                <a href="index.html#sobre">Sobre</a>
+                <a href="index.html#servicos">Serviços</a>
+                <a href="index.html#projetos">Projetos</a>
+                <a href="blog.html" class="active">Blog</a> 
+            </nav>
+            <a href="https://api.whatsapp.com/send/?phone=5534920005345" class="btn btn-white">Começar projeto</a>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL DO BLOG -->
+    <main class="magazine-container">
+        
+        <!-- CABEÇALHO COM OS BOTÕES DE FILTRO -->
+        <div class="magazine-header">
+            <h1 class="big-title">BLOG</h1>
+            
+            <!-- Botões de Categoria (Adicionei data-category aqui) -->
+            <div class="categories">
+                <span>CATEGORIAS:</span>
+                <a href="#" class="cat-pill cat-cinza" data-category="all">Todos</a>
+                <a href="#" class="cat-pill cat-azul" data-category="branding">Branding</a>
+               <!--<a href="#" class="cat-pill cat-vermelho" data-category="estética">Estética</a> 
+                <a href="#" class="cat-pill cat-amarelo" data-category="processo">Processo</a>--> 
+            </div>
+        </div>
+
+        <!-- GRADE DE POSTS -->
+        <div class="posts-grid">
+            
+            <!-- Post 1: Frankstein -->
+            <article class="post-card" data-category="branding">
+                <div class="post-meta">
+                    <span class="date"> 24 de novembro 2025</span>
+                    <span class="tag tag-azul">Branding</span>
+                </div>
+                <div class="post-image">
+                    <a href="artigo-01.html">
+                    <img src="Frankstein.png" alt="Imagem Post">
+                    </a>
+                </div>
+                <h2>
+                    <a href="artigo-01.html" class="post-link">Sua marca é um Frankenstein? O erro invisível que afasta seus clientes ideais</a>
+                </h2>
+                <p> Você tem a essência, a pureza e o talento. Mas a sua "embalagem" pode estar assustando quem deveria te admirar. Entenda o Paradoxo de Elizabeth.</p>
+                <div class="post-footer">
+                    <span>Texto: Marcella Mazul</span>
+                    <span>Leitura: 3 min</span>
+                </div>
+            </article>
+
+            <!-- Post 2: Interiores -->
+            <!--article class="post-card" data-category="estética">
+                <div class="post-meta">
+                    <span class="date">12 Março 2025</span>
+                    <span class="tag tag-vermelho">Estética</span>
+                </div>
+                <div class="post-image">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" alt="Imagem Post">
+                </div>
+                <h2>Não feche os olhos para os detalhes</h2>
+                <p>Os pequenos detalhes em um projeto de interiores podem mudar tudo.</p>
+                <div class="post-footer">
+                    <span>Texto: Marcella Mazul</span>
+                    <span>Leitura: 5 min</span>
+                </div>
+            </article>-->
+
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="social-links">
+                <a href="https://www.instagram.com/mazuldesign/" target="_blank" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.tiktok.com/@mazuldesign" target="_blank" aria-label="TikTok"><i class='bx bxl-tiktok'></i></a>
+                <a href="https://www.behance.net/marcellamoura1" target="_blank" aria-label="Behance"><i class='bx bxl-behance'></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=5534920005345&text&type=phone_number&app_absent=0" target="_blank" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Marcella Mazul. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

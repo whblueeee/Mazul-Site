@@ -142,3 +142,80 @@ if (window.innerWidth <= 768) {
     const elementsToAnimate = document.querySelectorAll('.main-photo, .floating-tag, .logo-img');
     elementsToAnimate.forEach(el => observer.observe(el));
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+            // 1. Seleciona os elementos
+            const filterButtons = document.querySelectorAll('.cat-pill');
+            const allPosts = document.querySelectorAll('.post-card');
+
+            // 2. Adiciona o evento de clique em cada botão
+            filterButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    // Impede o site de recarregar ou pular pro topo
+                    e.preventDefault();
+
+                    // Descobre qual categoria foi clicada (ex: "arquitetura")
+                    const categoryToFilter = button.getAttribute('data-category');
+
+                    // 3. Filtra os posts
+                    allPosts.forEach(post => {
+                        // Pega a categoria do post
+                        const postCategory = post.getAttribute('data-category');
+
+                        // Se for "all" ou se as categorias forem iguais, mostra
+                        if (categoryToFilter === 'all' || categoryToFilter === postCategory) {
+                            post.style.display = 'flex';
+                            
+                            // Animaçãozinha de entrada suave (opcional)
+                            post.style.opacity = '0';
+                            setTimeout(() => post.style.opacity = '1', 50);
+                        } else {
+                            // Senão, esconde
+                            post.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+
+
+        // Script do botão Voltar ao Topo
+        const backToTopButton = document.getElementById("backToTop");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopButton.classList.add("show");
+            } else {
+                backToTopButton.classList.remove("show");
+            }
+        };
+
+        backToTopButton.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+        
+  //    <!-- JAVASCRIPT DO PARALLAX -->
+
+              let bg = document.getElementById('layerBg');
+        let title = document.getElementById('layerTitle');
+        let frank = document.getElementById('layerFrank');
+
+        window.addEventListener('scroll', function() {
+            let value = window.scrollY;
+
+            // A MÁGICA ACONTECE AQUI:
+            
+            // 1. O Título desce um pouco (value * 0.5) para dar espaço
+            title.style.transform = `translateY(${value * 0.5}px)`;
+            
+            // 2. O Frankenstein sobe (value * -0.15) para cobrir o título
+            // O valor negativo faz ele ir contra o scroll, subindo na tela
+            frank.style.transform = `translateY(${value * -0.25}px)`;
+            
+            // 3. O Fundo se move bem devagar para dar profundidade
+            bg.style.transform = `translateY(${value * 0.5}px)`;
+        });
