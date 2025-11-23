@@ -516,6 +516,7 @@ a { text-decoration: none; color: inherit; }
     text-transform: uppercase;
     line-height: 0.9;
     margin: 0;
+    margin-top: 30px;
     letter-spacing: -2px;
 }
 
@@ -700,21 +701,22 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* Responsividade */
-@media (max-width: 900px) {
-    .posts-grid {
-        grid-template-columns: repeat(2, 1fr); 
-    }
-    .big-title {
-        font-size: 15vw;
-    }
-}
-
 @media (max-width: 600px) {
+    /* 1. Deixa os posts em uma coluna só */
     .posts-grid {
         grid-template-columns: 1fr; 
     }
+
+    /* 2. Ajusta a borda do card para não ficar redonda demais */
     .post-card {
-        border-radius: 30px; /* Um pouco menos redondo no celular */
+        border-radius: 30px; 
+    }
+
+    /* 3. AQUI ESTÁ A MÁGICA DO RESPIRO: */
+    .magazine-container {
+        /* Aumentando o espaço lateral de 20px para 35px */
+        padding-left: 35px; 
+        padding-right: 35px;
     }
 }
 
@@ -975,11 +977,18 @@ a { text-decoration: none; color: inherit; }
     }
     
     .floating-back-btn {
-        top: auto;
-        bottom: 30px; /* Vai para baixo no celular */
+         top: 85px; 
         left: 20px;
-        background: #017EDA;
-        color: white;
+        
+        /* Tamanho: Um pouco menor para não tapar muito a imagem */
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+        
+        /* Estilo: Fundo branco sólido para garantir leitura em cima da foto */
+        background-color: #fff; 
+        color: #017EDA;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 }
 
