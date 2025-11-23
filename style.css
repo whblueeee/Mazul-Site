@@ -1011,7 +1011,7 @@ a { text-decoration: none; color: inherit; }
     right: 30px;
     width: 50px;
     height: 50px;
-    background-color: var(--primary-blue);
+    background-color: #017EDA;
     color: white;
     border: none;
     border-radius: 50%;
@@ -1039,15 +1039,27 @@ a { text-decoration: none; color: inherit; }
     .nav-links { display: none; /* Adicione lógica de menu JS se tiver */ }
     
     /* Parallax Ajustado */
-    .parallax-hero { height: 80vh; }
+    .parallax-hero { height: 70vh; }
     
-    .layer-titlee { 
-        width: 90% !important; 
-        top: 30%; /* Sobe um pouco mais no celular */
+   .layer-bg, 
+    .layer-frank {
+        height: 100% !important; /* Ambos ocupam tudo */
+        width: 100% !important;
+        bottom: 0;
+        top: auto; /* Reseta qualquer top anterior */
+        
+        /* Garante que ambos cortem do mesmo jeito */
+        object-fit: cover;
+        object-position: center bottom; /* Ancora no chão */
     }
-    
-    .layer-frank { height: 85% !important; bottom: 0; }
-    
+
+    /* 3. Título (Ajuste Independente) */
+    .layer-title { 
+        width: 90% !important; /* Título maior para ler */
+        top: 10%;              /* Posição vertical */
+        transform: translate(-50%, -50%) !important; /* Mantém centralizado */
+    }
+
     /* Sidebar Fixa na Lateral Esquerda */
     .social-sidebar {
         position: fixed;
