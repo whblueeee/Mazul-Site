@@ -945,7 +945,7 @@ a { text-decoration: none; color: inherit; }
     font-size: 1.3rem;
     color: #ffffff;
     margin: 40px 0;
-    background: #DB3733;
+    background: #55c4f7;
     padding: 30px;
     border-radius: 0 10px 10px 0;
 }
@@ -1055,8 +1055,8 @@ a { text-decoration: none; color: inherit; }
 
     /* 3. Título (Ajuste Independente) */
     .layer-title { 
-        width: 90% !important; /* Título maior para ler */
-        top: 10%;              /* Posição vertical */
+        width: 70% !important; /* Título maior para ler */
+        top: 20%;              /* Posição vertical */
         transform: translate(-50%, -50%) !important; /* Mantém centralizado */
     }
 

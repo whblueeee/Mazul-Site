@@ -213,6 +213,6 @@ document.addEventListener("DOMContentLoaded", () => {
         frank.style.transform = `translateY(${sceneMovement}px)`;
 
         // Título desce devagar (apenas no eixo Y)
-        const titleMovement = value * 0.2;
+        const titleMovement = value * 0.4;
         title.style.transform = `translateY(${titleMovement}px)`;
     });
