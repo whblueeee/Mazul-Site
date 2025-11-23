@@ -744,7 +744,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .floating-back-btn:hover {
-    background-color: var(--primary-blue);
+    background-color: #017EDA;
     color: white;
     transform: translateX(-5px);
 }
