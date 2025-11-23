@@ -882,7 +882,7 @@ a { text-decoration: none; color: inherit; }
     width: 40px;
     height: 40px;
     background: #f0f2f5;
-    color: #333;
+    color: #017EDA;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -893,7 +893,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .social-icon:hover {
-    background: var(--primary-blue);
+    background: #017EDA;
     color: white;
     transform: translateY(-3px);
 }
@@ -924,7 +924,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .highlight-blue {
-    color: var(--primary-blue);
+    color: #017EDA;
     font-weight: 700;
     margin-top: 40px;
     margin-bottom: 20px;
@@ -932,20 +932,20 @@ a { text-decoration: none; color: inherit; }
 }
 
 .article-body h3 {
-    color: var(--primary-blue);
+    color: #017EDA;
     font-size: 1.4rem;
     margin-top: 30px;
     font-weight: 600;
 }
 
 .article-quote {
-    border-left: 4px solid var(--primary-red);
+    border-left: 4px solid #017EDA;
     padding-left: 20px;
     font-style: italic;
     font-size: 1.3rem;
-    color: #333;
+    color: #ffffff;
     margin: 40px 0;
-    background: #fff5f5;
+    background: #DB3733;
     padding: 30px;
     border-radius: 0 10px 10px 0;
 }
