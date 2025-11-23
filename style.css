@@ -724,75 +724,116 @@ a { text-decoration: none; color: inherit; }
 /* PÁGINA DO ARTIGO COMPLETA (FINAL)                    */
 /* ================================================================= */
 
-/* --- 1. BOTÃO VOLTAR FLUTUANTE --- */
 .floating-back-btn {
     position: fixed;
-    top: 100px; /* Logo abaixo do menu */
     left: 30px;
-    width: 50px;
-    height: 50px;
+    top: 100px; /* Desktop: Abaixo do menu */
+    width: 45px;
+    height: 45px;
     background-color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    z-index: 99; /* Fica acima de quase tudo */
-    color: #017EDA;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1001; /* Acima de tudo */
+    color: var(--primary-blue);
     font-size: 1.5rem;
-    transition: all 0.3s ease;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .floating-back-btn:hover {
-    background-color: #017EDA;
+    background-color: var(--primary-blue);
     color: white;
     transform: translateX(-5px);
 }
 
-/* --- 2. HERO PARALLAX (Frankenstein) --- */
+/* ========================================= */
+/* 4. HERO PARALLAX (LÓGICA CORRIGIDA)      */
+/* ========================================= */
 .parallax-hero {
     position: relative;
     width: 100%;
-    height: 100vh; /* Tela cheia */
+    height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #111; /* Fundo preto de segurança */
+    background: #000;
+    margin-top: 0 !important;
 }
 
 .parallax-hero .layer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+/* Camada 1: Fundo (Ancorado no chão) */
+.layer-bg {
+    z-index: 1;
+    bottom: 0;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+/* Camada 2: Título (Centralizado) */
+.layer-titlee {
+    z-index: 2;
+    position: absolute;
+    
+    /* CENTRALIZAÇÃO HORIZONTAL (O Segredo) */
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Posição Vertical Inicial */
+    top: 3%; /* Começa um pouco acima do meio */
+    
+    /* Tamanho */
+    width: 60%; 
+    max-width: 600px;
+    height: auto;
+    
+    /* Importante: Começa sem transform nenhum para o JS assumir */
+    transform: none;
+}
+
+/* Camada 3: Frankenstein (Ancorado no chão) */
+.layer-frank {
+    z-index: 3;
+    bottom: 0;
+    height: 100%; /* Mesma altura do fundo */
+    object-fit: cover;
+}
+.hero-vignette {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Permite o scroll funcionar em cima da imagem */
+    
+    /* Importante: Deixa você clicar nas coisas embaixo se precisar */
+    pointer-events: none; 
+    
+    /* Z-Index: Fica em cima do Frank (3) mas embaixo do degradê branco (5) */
+    z-index: 4; 
+    
+    /* O Efeito Visual */
+    background: radial-gradient(
+        circle, 
+        rgba(0,0,0,0) 35%,      /* Centro transparente (mostra o conteúdo) */
+        rgba(0,0,0,0.3) 60%,    /* Escurece suavemente */
+        rgba(0,0,0,0.9) 100%    /* Bordas pretas fortes */
+    );
+    
+    /* Opcional: Mistura a sombra com a imagem para ficar mais natural */
+    mix-blend-mode: multiply; 
 }
-
-/* Camada 1: Fundo */
-.layer-bg {
-    z-index: 1;
-    object-fit: cover;
-    opacity: 0.7;
-}
-
-/* Camada 2: Título (Fica no meio) */
-.layer-title {
-    z-index: 2;
-    object-fit: contain;
-    transform: scale(0.85); /* Ajuste o tamanho do título aqui */
-}
-
-/* Camada 3: Frankenstein (Fica na frente) */
-.layer-frank {
-    z-index: 3; 
-    object-fit: contain;
-    top: 10%; /* Começa um pouco mais para baixo */
-    height: 110% !important; /* Sobra altura para ele poder subir */
-}
-
 /* Degradê para suavizar a base hero-gradient {
     position: absolute;
     bottom: 0;
@@ -804,11 +845,15 @@ a { text-decoration: none; color: inherit; }
 }*/
 
 /* --- 3. ESTRUTURA DO CONTEÚDO (WRAPPER) --- */
+
+/* ========================================= */
+/* 5. ESTRUTURA E SIDEBAR                   */
+/* ========================================= */
 .article-content-wrapper {
     position: relative;
-    z-index: 10; /* Fica acima da Hero */
+    z-index: 10;
     background: #fff;
-    margin-top: -50px; /* Efeito de sobreposição */
+    margin-top: -50px; /* Efeito sobreposição */
     border-radius: 30px 30px 0 0;
     padding-bottom: 50px;
 }
@@ -818,11 +863,11 @@ a { text-decoration: none; color: inherit; }
     margin: 0 auto;
     padding: 60px 20px;
     display: grid;
-    grid-template-columns: 60px 1fr; /* Sidebar + Texto */
+    grid-template-columns: 60px 1fr; /* Coluna Sidebar + Texto */
     gap: 40px;
 }
 
-/* --- 4. SIDEBAR E REDES SOCIAIS --- */
+/* Sidebar Desktop (Sticky) */
 .social-sidebar {
     display: flex;
     flex-direction: column;
@@ -830,6 +875,7 @@ a { text-decoration: none; color: inherit; }
     position: sticky;
     top: 150px;
     height: fit-content;
+    z-index: 90;
 }
 
 .social-icon {
@@ -847,19 +893,20 @@ a { text-decoration: none; color: inherit; }
 }
 
 .social-icon:hover {
-    background: #017EDA;
+    background: var(--primary-blue);
     color: white;
     transform: translateY(-3px);
 }
 
-/* --- 5. TIPOGRAFIA E ELEMENTOS DO TEXTO --- */
+/* ========================================= */
+/* 6. CONTEÚDO E TIPOGRAFIA                 */
+/* ========================================= */
 .article-body {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #444;
 }
 
-/* Meta do Autor */
 .author-meta {
     display: flex;
     align-items: center;
@@ -876,20 +923,8 @@ a { text-decoration: none; color: inherit; }
     object-fit: cover;
 }
 
-.author-info strong {
-    display: block;
-    color: #000;
-    font-size: 1rem;
-}
-
-.author-info span {
-    font-size: 0.85rem;
-    color: #777;
-}
-
-/* Títulos H2 e H3 */
 .highlight-blue {
-    color: #017EDA;
+    color: var(--primary-blue);
     font-weight: 700;
     margin-top: 40px;
     margin-bottom: 20px;
@@ -897,26 +932,24 @@ a { text-decoration: none; color: inherit; }
 }
 
 .article-body h3 {
-    color: #017EDA;
-    font-weight: 600;
-    margin-top: 30px;
+    color: var(--primary-blue);
     font-size: 1.4rem;
+    margin-top: 30px;
+    font-weight: 600;
 }
 
-/* Citação Destacada (Quote) */
 .article-quote {
-    border-left: 4px solid #DB3733; /* Vermelho */
+    border-left: 4px solid var(--primary-red);
     padding-left: 20px;
     font-style: italic;
     font-size: 1.3rem;
     color: #333;
     margin: 40px 0;
-    background: #fff5f5; /* Fundo levemente avermelhado */
+    background: #fff5f5;
     padding: 30px;
     border-radius: 0 10px 10px 0;
 }
 
-/* Imagens dentro do texto */
 .article-image-container img {
     width: 100%;
     border-radius: 20px;
@@ -924,7 +957,23 @@ a { text-decoration: none; color: inherit; }
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* --- 6. CALL TO ACTION (CTA) --- */
+.article-image-container figcaption {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Lista Customizada */
+.custom-list { list-style: none; padding: 0; }
+.custom-list li {
+    margin-bottom: 10px; padding: 15px;
+    background: #f8f9fa; border-radius: 8px;
+    border-left: 3px solid var(--primary-blue);
+}
+
+/* ========================================= */
+/* 7. CTA E RODAPÉ (SEM BORDAS)             */
+/* ========================================= */
 .article-cta {
     background-color: #f9f9f9;
     padding: 80px 20px;
@@ -933,14 +982,14 @@ a { text-decoration: none; color: inherit; }
 }
 
 .cta-content h2 {
-    color: #017EDA;
+    color: var(--primary-blue);
     margin-bottom: 30px;
     font-size: 1.8rem;
 }
 
 .cta-button {
     display: inline-block;
-    background-color: #DB3733; /* Vermelho */
+    background-color: #DB3733;
     color: white;
     padding: 15px 40px;
     border-radius: 50px;
@@ -955,92 +1004,89 @@ a { text-decoration: none; color: inherit; }
     background-color: #b52a27;
     transform: scale(1.05);
 }
-
-/* --- 7. RESPONSIVIDADE (MOBILE) --- */
-@media (max-width: 768px) {
-    /* Ajuste do Parallax no celular */
-    .parallax-hero { height: 80vh; }
-    .layer-title { transform: scale(1.2); top: -10%; }
-    .layer-frank { height: 85% !important; top: 20%; }
-    
-    /* Layout do Texto */
-    .article-container {
-        grid-template-columns: 1fr; /* Remove a coluna da sidebar */
-        padding: 40px 20px;
-    }
-    
-    .social-sidebar {
-        flex-direction: row; /* Ícones deitados */
-        position: static;
-        margin-bottom: 30px;
-        justify-content: flex-start;
-    }
-    
-    .floating-back-btn {
-         top: 85px; 
-        left: 20px;
-        
-        /* Tamanho: Um pouco menor para não tapar muito a imagem */
-        width: 40px;
-        height: 40px;
-        font-size: 1.3rem;
-        
-        /* Estilo: Fundo branco sólido para garantir leitura em cima da foto */
-        background-color: #fff; 
-        color: #017EDA;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-}
-
-/* --- BOTÃO VOLTAR AO TOPO (Canto Inferior Direito) --- */
-
+/* Botão Voltar ao Topo */
 #backToTop {
     position: fixed;
-    bottom: 100px;
+    bottom: 30px;
     right: 30px;
     width: 50px;
     height: 50px;
-    background-color: #017EDA; /* Azul da marca */
+    background-color: var(--primary-blue);
     color: white;
     border: none;
-    border-radius: 50%; /* Deixa redondo */
+    border-radius: 50%;
     cursor: pointer;
-    font-size: 24px; /* Tamanho da setinha */
-    
-    /* Centralizar o ícone */
+    font-size: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 1000; /* Garante que fique na frente de tudo */
-    
-    /* Efeito de aparecer/desaparecer */
-    opacity: 0; 
+    z-index: 1000;
+    opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
 }
 
-/* Classe que o JavaScript adiciona quando rola a página */
-#backToTop.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
+#backToTop.show { opacity: 1; visibility: visible; transform: translateY(0); }
+#backToTop:hover { background-color: #0056b3; transform: translateY(-5px); }
 
-/* Efeito ao passar o mouse */
-#backToTop:hover {
-    background-color: #0056b3; /* Azul mais escuro */
-    transform: translateY(-5px); /* Sobe um pouquinho */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
-
-/* Ajuste para Celular */
+/* ========================================= */
+/* 8. RESPONSIVIDADE (MOBILE)               */
+/* ========================================= */
 @media (max-width: 768px) {
-    #backToTop {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
+    /* Header e Menu */
+    .header-content .btn-white { display: none; }
+    .nav-links { display: none; /* Adicione lógica de menu JS se tiver */ }
+    
+    /* Parallax Ajustado */
+    .parallax-hero { height: 80vh; }
+    
+    .layer-titlee { 
+        width: 90% !important; 
+        top: 30%; /* Sobe um pouco mais no celular */
     }
+    
+    .layer-frank { height: 85% !important; bottom: 0; }
+    
+    /* Sidebar Fixa na Lateral Esquerda */
+    .social-sidebar {
+        position: fixed;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        gap: 10px;
+        z-index: 100;
+    }
+    
+    .social-icon {
+        background: rgba(240, 242, 245, 0.9);
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        width: 35px; height: 35px;
+    }
+    
+    /* Botão Voltar (Abaixo do Menu) */
+    .floating-back-btn {
+        top: 85px; 
+        left: 20px;
+        width: 40px; height: 40px; font-size: 1.3rem;
+        background-color: #fff;
+        color: var(--primary-blue);
+    }
+    
+    /* Layout com RESPIRO LATERAL */
+    .article-container {
+        grid-template-columns: 1fr;
+        padding-left: 60px; /* Espaço para a sidebar fixa */
+        padding-right: 35px; /* Respiro lateral direito */
+        padding-top: 40px;
+    }
+    
+    /* Ajuste para o Blog Principal (Grade) */
+    .magazine-container {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+    
+    /* Ajuste do botão topo */
+    #backToTop { bottom: 20px; right: 20px; }
 }

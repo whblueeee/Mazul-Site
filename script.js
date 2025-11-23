@@ -197,25 +197,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 behavior: "smooth"
             });
         });
-        
+
   //    <!-- JAVASCRIPT DO PARALLAX -->
 
-              let bg = document.getElementById('layerBg');
-        let title = document.getElementById('layerTitle');
-        let frank = document.getElementById('layerFrank');
+    const bg = document.getElementById('layerBg');
+    const title = document.getElementById('layerTitlee');
+    const frank = document.getElementById('layerFrank');
 
-        window.addEventListener('scroll', function() {
-            let value = window.scrollY;
+    window.addEventListener('scroll', function() {
+        let value = window.scrollY;
 
-            // A MÁGICA ACONTECE AQUI:
-            
-            // 1. O Título desce um pouco (value * 0.5) para dar espaço
-            title.style.transform = `translateY(${value * 0.5}px)`;
-            
-            // 2. O Frankenstein sobe (value * -0.15) para cobrir o título
-            // O valor negativo faz ele ir contra o scroll, subindo na tela
-            frank.style.transform = `translateY(${value * -0.25}px)`;
-            
-            // 3. O Fundo se move bem devagar para dar profundidade
-            bg.style.transform = `translateY(${value * 0.5}px)`;
-        });
+        // Fundo e Frank descem juntos
+        const sceneMovement = value * 0.5;
+        bg.style.transform = `translateY(${sceneMovement}px)`;
+        frank.style.transform = `translateY(${sceneMovement}px)`;
+
+        // Título desce devagar (apenas no eixo Y)
+        const titleMovement = value * 0.2;
+        title.style.transform = `translateY(${titleMovement}px)`;
+    });
