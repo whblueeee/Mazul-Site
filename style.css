@@ -1177,12 +1177,22 @@ a { text-decoration: none; color: inherit; }
 
 /* --- RESPONSIVIDADE (MOBILE) --- */
 @media (max-width: 768px) {
+/* 1. Hero menos "alta/vertical" */
+    .dark-hero {
+        height: 70vh; /* Reduzi de 100vh para 70vh. Fica mais compacto. */
+        min-height: 500px; /* Garante que não fique pequeno demais em telas muito curtas */
+    }
+
+    /* 2. Título maior */
     .layer-title-dark {
-        width: 95%; /* No celular, o título ocupa quase toda a largura */
+        width: 100%;       /* Ocupa a largura total da tela */
+        max-width: none;   /* Remove limites de tamanho */
+        padding: 0 10px;   /* Uma pequena margem para não colar na borda do celular */
     }
     
-    /* Ajuste fino para a fechadura no celular, caso precise focar no centro */
+    /* 3. Ajuste do fundo para a nova altura */
     .layer-bg-dark {
-        object-position: center top; /* Foca mais no rosto/topo da imagem de fundo */
+        /* Foca mais no topo (rosto da mulher) já que a hero ficou mais baixa */
+        object-position: center 20%; 
     }
 }
