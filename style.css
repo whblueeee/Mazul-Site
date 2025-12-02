@@ -932,7 +932,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .article-body h3 {
-    color: #017EDA;
+    color: #017EDA #DB3733;
     font-size: 1.4rem;
     margin-top: 30px;
     font-weight: 600;
@@ -1101,4 +1101,88 @@ a { text-decoration: none; color: inherit; }
     
     /* Ajuste do botão topo */
     #backToTop { bottom: 20px; right: 20px; }
+}
+
+/* --- CONFIGURAÇÃO DA HERO DARK --- */
+
+/* --- HERO DARK (ESTRUTURA LIMPA) --- */
+
+.dark-hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+}
+
+/* Camada 1: Fundo */
+.layer-bg-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transform: scale(1.1); /* Zoom inicial */
+}
+
+/* Camada 2: A Fechadura (Locker) */
+.layer-locker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que cubra a tela toda */
+    z-index: 2;
+    pointer-events: none;
+    /* Não precisa de centralização pois ocupa 100% da tela */
+}
+
+/* Camada 3: O Título (A MÁGICA ACONTECE AQUI) */
+.layer-title-dark {
+    position: absolute;
+    z-index: 3;
+    
+    /* Esta combinação centraliza perfeitamente sem usar transform */
+    inset: 0;       /* Cola nas 4 bordas */
+    margin: auto;   /* Calcula o centro automaticamente */
+    
+    width: 95%;
+    max-width: 1300px;
+    height: fit-content; /* Altura ajustada ao conteúdo */
+    max-height: 80vh;    /* Impede que fique maior que a tela */
+    object-fit: contain;
+}
+
+.highlight-red {
+    color: #DB3733;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.article-quote-red {
+    border-left: 4px solid #b12d2a;
+    padding-left: 20px;
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin: 40px 0;
+    background: #DB3733;
+    padding: 30px;
+    border-radius: 0 10px 10px 0;
+}
+
+
+/* --- RESPONSIVIDADE (MOBILE) --- */
+@media (max-width: 768px) {
+    .layer-title-dark {
+        width: 95%; /* No celular, o título ocupa quase toda a largura */
+    }
+    
+    /* Ajuste fino para a fechadura no celular, caso precise focar no centro */
+    .layer-bg-dark {
+        object-position: center top; /* Foca mais no rosto/topo da imagem de fundo */
+    }
 }

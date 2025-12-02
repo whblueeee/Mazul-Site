@@ -216,3 +216,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const titleMovement = value * 0.4;
         title.style.transform = `translateY(${titleMovement}px)`;
     });
+
+    window.addEventListener('scroll', function() {
+    const scrollPosition = window.pageYOffset;
+
+    const darkBg = document.getElementById('darkBg');
+    const darkLocker = document.getElementById('darkLocker');
+    const darkTitle = document.getElementById('darkTitle');
+
+    if(darkBg && darkTitle && darkLocker) {
+        
+        // 1. Fundo: Move levemente para baixo
+        darkBg.style.transform = `translateY(${scrollPosition * 0.2}px) scale(1.1)`;
+
+        // 2. Título: Sobe (translateY negativo)
+        // Como o CSS cuidou da centralização com 'margin: auto',
+        // podemos usar o transform livremente aqui!
+        darkTitle.style.transform = `translateY(-${scrollPosition * 0.5}px)`;
+        
+        // 3. Fechadura: Apenas Zoom
+        darkLocker.style.transform = `scale(${1 + scrollPosition * 0.003})`;
+    }
+});
