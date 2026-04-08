@@ -138,16 +138,20 @@
 
         <div class="modal-header">
             <h2 class="modal-title">Opções de Investimento</h2>
-            <p class="modal-subtitle">Soluções flexíveis de investimento para integrar o design estratégico à rotina da Brasil Tecpar.</p>
+            <p class="modal-subtitle">Soluções flexíveis de investimento para integrar o design estratégico à rotina da Brasil Tecpar, com previsibilidade de custos e prioridade de entrega.</p>
         </div>
 
-        <!-- CONTAINER DO CARROSSEL -->
+        <!-- ABAS DE NAVEGAÇÃO RÁPIDA (Conforme a imagem) -->
+        <div class="carousel-tabs">
+            <button class="tab-item active" onclick="currentSlideTo(0)">On - Demand</button>
+            <button class="tab-item" onclick="currentSlideTo(1)">Fee Mensal</button>
+            <button class="tab-item" onclick="currentSlideTo(2)">Full Experience</button>
+        </div>
+
         <div class="carousel-container">
-            <!-- Setas Triângulo -->
-            <button class="nav-btn prev" onclick="moveSlide(-1)">
-                <i class='bx bxs-left-arrow'></i>
-            </button>
-            
+            <!-- Setas estilo Círculo Azul (Conforme imagem) -->
+<button class="nav-btn prev" onclick="moveSlide(-1)"><i class='bx bxs-left-arrow'></i></button>
+<button class="nav-btn next" onclick="moveSlide(1)"><i class='bx bxs-right-arrow'></i></button>            
             <div class="carousel-track-container">
                 <div class="carousel-track" id="carouselTrack">
                     
@@ -157,11 +161,11 @@
                             <h3 class="plan-title">On-Demand</h3>
                             <p class="plan-tagline">Para necessidades isoladas e sem urgência.</p>
                             <div class="plan-details">
-                                <p><strong>Escopo:</strong>Criação de peças gráficas avulsas (Banners, Assinaturas ou Cards).</p>
-                                <p><strong>Fluxo:</strong> Orçamento e aprovação por peça.</p>
-                                <p><strong>Antecedência:</strong> Mínimo de 5 dias úteis.</p>
-                                <p><strong>Prazo:</strong> Média de 72h a 120h úteis.</p>
-                                <p><strong>Investimento:</strong>  Conforme Tabela de Serviços Unitários.</p>
+                                <p><strong>Escopo:</strong> Criação de peças gráficas avulsas (Banners, Assinaturas ou Cards).</p>
+                                <p><strong>Fluxo:</strong> Requer abertura de orçamento e aprovação financeira para cada nova peça.</p>
+                                <p><strong>Antecedência do Briefing:</strong> Mínimo de 5 dias úteis.</p>
+                                <p><strong>Prazo de Entrega:</strong> Média de 72h a 120h úteis (sujeito à fila de espera).</p>
+                                <p><strong>Investimento:</strong> Conforme Tabela de Serviços Unitários.</p>
                             </div>
                             <button class="btn-conferir">Conferir Tabela</button>
                         </div>
@@ -174,30 +178,42 @@
                             <p class="plan-tagline">Para demandas recorrentes e prioridade total.</p>
                             <div class="plan-details">
                                 <p><strong>Escopo:</strong> Design fixo mensal com horas dedicadas.</p>
-                                <p><strong>Fluxo:</strong> Canal direto e prioridade na fila.</p>
-                                <p><strong>Prazo:</strong> Entrega agilizada em até 48h.</p>
+                                <p><strong>Fluxo:</strong> Canal direto e prioridade na fila de execução.</p>
+                                <p><strong>Prazo de Entrega:</strong> Entrega agilizada em até 48h.</p>
                                 <p><strong>Investimento:</strong> Valor fixo mensal sob contrato.</p>
                             </div>
                             <button class="btn-conferir">Solicitar Proposta</button>
                         </div>
                     </div>
 
+                    <!-- CARD 3 -->
+                    <div class="carousel-card">
+                        <div class="card-inner-box">
+                            <h3 class="plan-title">Full Experience</h3>
+                            <p class="plan-tagline">Imersão completa no ecossistema da marca.</p>
+                            <div class="plan-details">
+                                <p><strong>Escopo:</strong> Planejamento estratégico + Design 360°.</p>
+                                <p><strong>Fluxo:</strong> Consultoria dedicada e reuniões semanais.</p>
+                                <p><strong>Investimento:</strong> Sob consulta estratégica.</p>
+                            </div>
+                            <button class="btn-conferir">Agendar Reunião</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <button class="nav-btn next" onclick="moveSlide(1)">
-                <i class='bx bxs-right-arrow'></i>
-            </button>
+            <button class="nav-btn next" onclick="moveSlide(1)"><i class='bx bxs-right-arrow'></i></button>
+        </div>
 
-            <!-- Indicadores (Dots) -->
-            <div class="carousel-dots" id="carouselDots">
-                <span class="dot active" onclick="currentSlideTo(0)"></span>
-                <span class="dot" onclick="currentSlideTo(1)"></span>
-            </div>
-        </div> <!-- Fim carousel-container -->
-    </div> <!-- Fim modal-box -->
-</div> <!-- Fim modal-overlay -->
-
+        <!-- Dots mantidos embaixo -->
+        <div class="carousel-dots" id="carouselDots">
+            <span class="dot active" onclick="currentSlideTo(0)"></span>
+            <span class="dot" onclick="currentSlideTo(1)"></span>
+            <span class="dot" onclick="currentSlideTo(2)"></span>
+        </div>
+    </div>
+</div>
     <!-- POP-UP 3: SERVIÇOS -->
     <div id="modal-servicos" class="modal-overlay">
         <div class="modal-box">
