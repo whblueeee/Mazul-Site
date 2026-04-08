@@ -514,15 +514,7 @@ body {
         border-radius: 30px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
-.price-pill {
-        font-size: 1.2rem; /* Diminui ainda mais no celular */
-        padding: 8px 25px;
-    }
-    .price-unit {
-        font-size: 0.8rem;
-        transform: translateX(30px);
-    }
-}
+
     /* Botão Voltar Mobile */
     .btn-voltar {
         top: -60px; left: 0; width: 45px; height: 45px;
@@ -540,3 +532,11 @@ body {
     .modal-title { font-size: 1.5rem; }
     .plan-title { font-size: 1.4rem; }
 }
+.price-pill {
+        font-size: 1.2rem; /* Diminui ainda mais no celular */
+        padding: 8px 25px;
+    }
+    .price-unit {
+        font-size: 0.8rem;
+        transform: translateX(30px);
+    }
