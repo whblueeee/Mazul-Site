@@ -148,7 +148,7 @@ body {
 
 .avatar-img { width: 100%; height: 100%; object-fit: cover; }
 
-.profile-text h1 { font-size: 2.2rem; margin-bottom: 15px; color: #017EDA; }
+.profile-text h1 { font-size: 2.2rem; margin-bottom: 15px; color: var(--navy); }
 .profile-text p { color: #555; line-height: 1.6; font-size: 1.1rem; }
 
 /* SOCIAL LINKS */
@@ -466,7 +466,7 @@ body {
     /* Transformando cada card em uma BOX igual ao desktop */
     .carousel-card {
         min-width: 100%;
-        padding: 50px 50px;
+        padding: 20px 50px;
         background: white;
         border: 1.5px solid #A0D2FF; /* Borda azul aplicada individualmente */
         border-radius: 30px;
