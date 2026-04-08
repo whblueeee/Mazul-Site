@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Proposta de Orçamento | Mazul Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="intro-overlay">
+        <video id="intro-video" autoplay muted playsinline>
+            <source src="intro.mp4" type="video/mp4">
+        </video>
+    </div>
+
+<header class="top-nav">
+    <div class="logo-bar">
+        <img src="logo1.png" alt="Mazul" class="logo-central">
+    </div>
+    <div class="info-badge-container">
+        <div class="info-badge">
+            <span class="badge-blue">Proposta de Orçamento</span>
+            <span class="badge-white">Moveon + Mazul Design</span>
+        </div>
+    </div>
+</header>
+
+        <main class="presentation-container">
+            <section class="profile-section">
+                <div class="avatar-wrapper">
+                    <img src="marcella.jpg.png" alt="Marcella" class="avatar-img">
+                </div>
+                <div class="profile-text">
+                    <h1>Mazul Design</h1>
+                    <p>Olá, eu sou a Marcella, fundadora da Mazul Design! Crio soluções visuais criativas para marcas, projetos e demandas específicas. Se você precisa de algo que realmente funcione visualmente, eu posso te ajudar!</p>
+                </div>
+                <div class="pagination-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </section>
+
+            <section class="grid-section">
+                <!-- CARD 1 -->
+                <div class="card blue" onclick="openModal('modal-pilares')">
+                    <div class="card-content">
+                        <img src="icon-pilares.png" alt="Ícone">
+                    </div>
+                    <div class="card-footer">Pilares da Parceria</div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="card navy" onclick="openModal('modal-orcamento')">
+                    <div class="card-content">
+                        <img src="icon-orcamento.png" alt="Ícone">
+                    </div>
+                    <div class="card-footer">Opções de Orçamento</div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="card red" onclick="openModal('modal-servicos')">
+                    <div class="card-content">
+                        <img src="icon-servicos.png" alt="Ícone">
+                    </div>
+                    <div class="card-footer">Serviços Adicionais</div>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="card dark" onclick="openModal('modal-termos')">
+                    <div class="card-content">
+                        <img src="icon-termos.png" alt="Ícone">
+                    </div>
+                    <div class="card-footer">Termos e Condições</div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="bottom-bar"></footer>
+    </div>
+
+    <!-- POP-UP 1: PILARES -->
+    <div id="modal-pilares" class="modal-overlay">
+        <div class="modal-box">
+            <button class="btn-voltar" onclick="closeModal('modal-pilares')">Voltar</button>
+            <img src="logo-mazul.png" alt="Logo" class="logo-modal">
+            <h2 class="modal-title">Pilares da Parceria</h2>
+            <p class="modal-subtitle">Design estratégico focado em agilidade e integração total com o time Brasil TecPar.</p>
+            <div class="modal-list">
+                <div class="list-item">
+                    <div class="bullet"></div>
+                    <div>
+                        <strong>Workflow Flexível</strong>
+                        <p>Adequação total às ferramentas de gestão da Brasil TecPar (Jira, Planner, Trello, etc).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP 2: ORÇAMENTO -->
+    <div id="modal-orcamento" class="modal-overlay">
+        <div class="modal-box">
+            <button class="btn-voltar" onclick="closeModal('modal-orcamento')">Voltar</button>
+            <img src="logo-mazul.png" alt="Logo" class="logo-modal">
+            <h2 class="modal-title">Opções de Orçamento</h2>
+            <p>Aqui você descreve os valores e pacotes da proposta.</p>
+        </div>
+    </div>
+
+    <!-- POP-UP 3: SERVIÇOS -->
+    <div id="modal-servicos" class="modal-overlay">
+        <div class="modal-box">
+            <button class="btn-voltar" onclick="closeModal('modal-servicos')">Voltar</button>
+            <img src="logo-mazul.png" alt="Logo" class="logo-modal">
+            <h2 class="modal-title">Serviços Adicionais</h2>
+            <p>Aqui você lista o que mais pode oferecer além do escopo principal.</p>
+        </div>
+    </div>
+
+    <!-- POP-UP 4: TERMOS -->
+    <div id="modal-termos" class="modal-overlay">
+        <div class="modal-box">
+            <button class="btn-voltar" onclick="closeModal('modal-termos')">Voltar</button>
+            <img src="logo-mazul.png" alt="Logo" class="logo-modal">
+            <h2 class="modal-title">Termos e Condições</h2>
+            <p>Prazos, formas de pagamento e políticas de revisão.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+:root {
+    --blue: #0085FF;
+    --navy: #0A1128;
+    --red: #FF4B4B;
+    --dark: #1C2321;
+    --bg-light: #F2F2F2;
+    --header-grey: #F5F5F5;
+}
+
+/* 1. CORREÇÃO DA BARRA DE ROLAGEM (FLUTUANTE) */
+html {
+    /* Faz a barra flutuar sobre o conteúdo sem ocupar espaço na largura */
+    overflow-y: overlay; 
+}
+
+::-webkit-scrollbar {
+    width: 8px; /* Um pouco mais fina para não cobrir informações */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 10px;
+    /* Adicionei uma borda transparente para dar um "respiro" visual */
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--navy);
+}
+
+/* 2. ESTRUTURA GLOBAL */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+
+body { 
+    background-color: var(--bg-light); 
+    overflow-x: hidden;
+    display: flex; 
+    flex-direction: column; 
+}
+
+/* Intro Video */
+#intro-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1.5s ease;
+}
+
+#intro-video { width: 100%; height: 100%; object-fit: cover; }
+
+/* Main Content Animation */
+#main-content {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto; 
+    min-height: 100vh;
+}
+
+#main-content.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* HEADER */
+.top-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-bar {
+    width: 100%;
+    background-color: var(--header-grey);
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.logo-central {
+    height: 50px;
+}
+
+/* BADGE */
+.info-badge-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 30px 40px 10px 40px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.info-badge {
+    display: inline-flex;
+    border: 1px solid var(--blue);
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.badge-blue {
+    background-color: var(--blue);
+    color: white;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.badge-white {
+    background-color: white;
+    color: var(--blue);
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.presentation-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-section { flex: 1; min-width: 300px; text-align: left; }
+.avatar-wrapper {
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+.avatar-img { width: 100%; height: 100%; object-fit: cover; }
+.profile-text h1 { font-size: 2.2rem; margin-bottom: 15px; color: var(--navy); }
+.profile-text p { color: #555; line-height: 1.6; font-size: 1.1rem; }
+
+.grid-section {
+    flex: 1.2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    min-width: 320px;
+}
+
+.card {
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
+.card-content { height: 160px; display: flex; justify-content: center; align-items: center; }
+.card-content img { width: 60px; height: auto; }
+
+.card-footer {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--navy);
+}
+
+.blue .card-content { background-color: var(--blue); }
+.navy .card-content { background-color: var(--navy); }
+.red .card-content { background-color: var(--red); }
+.dark .card-content { background-color: var(--dark); }
+
+/* MODAIS */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    background: white;
+    width: 90%;
+    max-width: 700px;
+    padding: 60px 40px;
+    border-radius: 40px;
+    position: relative;
+    text-align: center;
+}
+
+.btn-voltar {
+    position: absolute;
+    top: 25px; left: 25px;
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.logo-modal { height: 30px; margin-bottom: 20px; }
+.modal-title { color: var(--blue); margin-bottom: 15px; }
+
+/* RODAPÉ FINAL */
+.bottom-bar { 
+    background: var(--blue); 
+    height: 40px; 
+    width: 100%;
+    margin-top: auto; 
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1; /* Garante que fique sob a scrollbar flutuante */
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .presentation-container { padding: 20px; flex-direction: column; align-items: center; }
+    .grid-section { grid-template-columns: 1fr; width: 100%; }
+    .avatar-wrapper { width: 180px; height: 180px; margin: 0 auto 20px auto; }
+    .profile-section { text-align: center; }
+}
