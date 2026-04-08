@@ -330,7 +330,29 @@ body {
     padding: 40px;
     background: white;
 }
+.carousel-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
 
+.tab-item {
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: none;
+    background: #E2E8F0; /* Cinza claro da imagem */
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-item.active {
+    background: var(--blue);
+    color: white;
+}
 .card-inner-box {
     text-align: left;
 }
@@ -423,69 +445,46 @@ body {
     flex-shrink: 0;
 }
 
-/* --- RESPONSIVIDADE --- */
+/* --- RESPONSIVIDADE (Mobile) --- */
 @media (max-width: 768px) {
-    /* Esconde barra de rolagem e ajusta o overlay */
     .modal-overlay {
         padding: 80px 15px 40px 15px;
-        scrollbar-width: none; 
-        -ms-overflow-style: none;
+        scrollbar-width: none; -ms-overflow-style: none;
     }
-    .modal-overlay::-webkit-scrollbar {
-        display: none;
-    }
+    .modal-overlay::-webkit-scrollbar { display: none; }
 
-    /* Ajuste da Caixa do Modal */
-    .modal-box {
-        padding: 40px 20px;
-        width: 100%;
-        border-radius: 30px;
-    }
+    .modal-box { padding: 40px 15px; width: 100%; border-radius: 30px; }
 
-    /* TRANSFORMA O CARROSSEL EM LISTA VERTICAL */
-    .carousel-track-container {
-        overflow: visible; /* Permite ver os cards empilhados */
-        border: none;
-    }
+    .nav-btn, .carousel-tabs, .carousel-dots { display: none !important; }
 
+    .carousel-track-container { overflow: visible; border: none; background: transparent; }
+    
     .carousel-track {
-        display: flex;
-        flex-direction: column; /* Um embaixo do outro */
-        gap: 20px;
-        transform: none !important; /* Anula o movimento do JavaScript */
+        flex-direction: column; gap: 25px; transform: none !important;
     }
 
+    /* Transformando cada card em uma BOX igual ao desktop */
     .carousel-card {
         min-width: 100%;
         padding: 30px 20px;
+        background: white;
+        border: 1.5px solid #A0D2FF; /* Borda azul aplicada individualmente */
+        border-radius: 30px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
-    /* ESCONDE ELEMENTOS DE NAVEGAÇÃO QUE NÃO SÃO ÚTEIS NA LISTA */
-    .nav-btn, 
-    .carousel-dots, 
-    .carousel-tabs {
-        display: none !important;
-    }
-
-    /* Botão Voltar (Estilo Ícone) */
     .btn-voltar {
-        top: -60px;
-        left: 0;
-        width: 45px;
-        height: 45px;
-        padding: 0;
-        border-radius: 50%;
-        justify-content: center;
+        top: -60px; left: 0; width: 45px; height: 45px;
+        padding: 0; border-radius: 50%; justify-content: center;
     }
     .btn-voltar span { display: none; }
     .btn-voltar i { display: block; font-size: 28px; margin: 0; }
 
-    /* Outros ajustes de seção */
     .presentation-container { padding: 20px; flex-direction: column; align-items: center; }
     .grid-section { grid-template-columns: 1fr; width: 100%; }
     .avatar-wrapper { width: 180px; height: 180px; margin: 0 auto 20px auto; }
     .profile-section { text-align: center; }
     .social-links { justify-content: center; }
-    .modal-title { font-size: 1.5rem; text-align: center; }
+    .modal-title { font-size: 1.5rem; }
     .plan-title { font-size: 1.4rem; }
 }
