@@ -447,39 +447,64 @@ body {
 
 /* --- RESPONSIVIDADE (Mobile) --- */
 @media (max-width: 768px) {
+@media (max-width: 768px) {
+    /* Mantém o espaçamento externo (respiro da tela) */
     .modal-overlay {
-        padding: 80px 15px 40px 15px;
-        scrollbar-width: none; -ms-overflow-style: none;
+        padding: 80px 15px 40px 15px; 
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
     .modal-overlay::-webkit-scrollbar { display: none; }
 
-    .modal-box { padding: 40px 40px; width: 100%; border-radius: 30px; }
-
-    .nav-btn, .carousel-tabs, .carousel-dots { display: none !important; }
-
-    .carousel-track-container { overflow: visible; border: none; background: transparent; }
-    
-    .carousel-track {
-        flex-direction: column; gap: 25px; transform: none !important;
+    /* AJUSTE CHAVE: Reduzimos o padding interno da caixa branca */
+    .modal-box {
+        padding: 40px 12px; /* Reduzi drasticamente as laterais (de 40px para 12px) */
+        width: 100%;
+        border-radius: 30px;
     }
 
-    /* Transformando cada card em uma BOX igual ao desktop */
+    /* ESCONDE CONTROLES */
+    .nav-btn, .carousel-tabs, .carousel-dots { 
+        display: none !important; 
+    }
+
+    /* CONTAINER DOS CARDS */
+    .carousel-track-container {
+        overflow: visible; 
+        border: none;
+        background: transparent;
+    }
+
+    .carousel-track {
+        display: flex;
+        flex-direction: column; 
+        gap: 20px;
+        transform: none !important;
+    }
+
+    /* BOXES DOS CARDS: Agora elas vão se esticar mais para os lados */
     .carousel-card {
         min-width: 100%;
-        padding: 20px 50px;
+        /* Padding interno do card (espaço entre texto e borda azul) */
+        padding: 30px 15px; 
         background: white;
-        border: 1.5px solid #A0D2FF; /* Borda azul aplicada individualmente */
+        border: 1.5px solid #A0D2FF;
         border-radius: 30px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
+    /* Ajuste de textos para caberem melhor na box larga */
+    .modal-title { font-size: 1.6rem; padding: 0 10px; }
+    .modal-subtitle { font-size: 1rem; padding: 0 10px; }
+    
+    /* Botão Voltar */
     .btn-voltar {
         top: -60px; left: 0; width: 45px; height: 45px;
         padding: 0; border-radius: 50%; justify-content: center;
     }
     .btn-voltar span { display: none; }
     .btn-voltar i { display: block; font-size: 28px; margin: 0; }
-
+}
     .presentation-container { padding: 20px; flex-direction: column; align-items: center; }
     .grid-section { grid-template-columns: 1fr; width: 100%; }
     .avatar-wrapper { width: 180px; height: 180px; margin: 0 auto 20px auto; }
