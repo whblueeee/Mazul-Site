@@ -439,8 +439,15 @@ body {
 }
     .plan-title { font-size: 1.6rem; }
 
+.modal-overlay::-webkit-scrollbar {
+        display: none;
+    }
 
     .modal-overlay {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+    }
+    .modal-overlay { 
         padding: 80px 15px 40px 15px; /* Mantém a margem da caixa no mobile */
     }
 
