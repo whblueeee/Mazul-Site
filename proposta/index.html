@@ -239,17 +239,98 @@ Sinta-se à vontade para navegar pelos detalhes desta proposta e escolher por on
     </div>
 
     <!-- POP-UP 4: TERMOS -->
-    <div id="modal-termos" class="modal-overlay">
-        <div class="modal-box">
-            <button class="btn-voltar" onclick="closeModal('modal-termos')">
-                <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
-            </button>
-            <img src="logo-mazul.png" alt="Logo" class="logo-modal">
+<!-- MODAL: TERMOS E CONDIÇÕES -->
+<div id="modal-termos" class="modal-overlay">
+    <div class="modal-box">
+        <button class="btn-voltar" onclick="closeModal('modal-termos')">
+            <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
+        </button>
+
+        <div class="modal-header">
             <h2 class="modal-title">Termos e Condições</h2>
-            <p class="modal-subtitle">Informações importantes sobre prazos, revisões e pagamentos.</p>
-            <!-- Conteúdo de termos aqui -->
+            <p class="modal-subtitle">Diretrizes para garantir a agilidade nas entregas e a transparência na nossa parceria criativa.</p>
+        </div>
+
+        <div class="pilares-list">
+            <!-- Item 1: Rodadas de Alteração -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-refresh'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Rodadas de Alteração</h3>
+                    <p>Estão inclusas até <strong>03 (três) rodadas de ajustes</strong> por demanda, desde que as solicitações não alterem o escopo inicial do briefing.</p>
+                </div>
+            </div>
+
+            <!-- Item 2: Mudança de Escopo -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-edit-alt'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Mudança de Escopo</h3>
+                    <p>Alterações que desviem da ideia original ou pedidos de refação após a aprovação final serão contabilizados como uma nova demanda no fluxo.</p>
+                </div>
+            </div>
+
+            <!-- Item 3: Contagem de SLA -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-time-five'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Contagem de SLA</h3>
+                    <p>O prazo de entrega inicia apenas após o recebimento do <strong>briefing completo</strong>, incluindo textos finais, referências e arquivos necessários.</p>
+                </div>
+            </div>
+
+            <!-- Item 4: Vigência -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-calendar-check'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Vigência</h3>
+                    <p>Os planos mensais possuem renovação automática. O cancelamento deve ser comunicado com no mínimo <strong>30 dias de antecedência</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Item 5: Pagamento -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-receipt'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Pagamento</h3>
+                    <p>Faturamento fixo mensal via Nota Fiscal. Demandas excedentes serão orçadas e faturadas separadamente, conforme a necessidade.</p>
+                </div>
+            </div>
+
+            <!-- Item 6: Propriedade Intelectual -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-shield-quarter'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Propriedade Intelectual</h3>
+                    <p>Os direitos de uso das peças finais pertencem à <strong>Brasil Tecpar</strong> após a quitação integral do pagamento.</p>
+                </div>
+            </div>
+
+            <!-- Item 7: Portfólio -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-briefcase-alt-2'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Uso para Portfólio</h3>
+                    <p>Fica autorizado o uso de projetos estruturados para composição do portfólio da designer, preservando dados sensíveis.</p>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
     <script src="script.js"></script>
 </body>

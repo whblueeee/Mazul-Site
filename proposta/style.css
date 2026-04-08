@@ -304,6 +304,50 @@ body {
 .box-pilares .pilar-content h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
 .box-pilares .pilar-content p { font-size: 1rem; color: #444; line-height: 1.6; }
 
+/* Estilo Base da Lista (Igual ao de Pilares) */
+.pilares-list {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.pilar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 25px 0;
+    border-top: 1px solid rgba(0, 133, 255, 0.1);
+}
+
+.pilar-item:first-child { border-top: none; }
+
+.pilar-circle {
+    width: 50px; 
+    height: 50px;
+    min-width: 50px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.pilar-circle i { 
+    color: white; 
+    font-size: 26px; 
+}
+
+.pilar-content h3 { 
+    font-size: 1.2rem; 
+    color: var(--navy); 
+    margin-bottom: 5px; 
+}
+
+.pilar-content p { 
+    font-size: 1rem; 
+    color: #444; 
+    line-height: 1.5; 
+}
+
 /* --- CARROSSEL DE INVESTIMENTO --- */
 .carousel-container {
     position: relative;
@@ -395,7 +439,7 @@ body {
 .price-pill {
     background-color: var(--blue); /* Usa sua variável de cor */
     color: white;
-    font-size: 0.8rem; /* Tamanho equilibrado (aprox 24px) */
+    font-size: 0.9rem; /* Tamanho equilibrado (aprox 24px) */
     padding: 10px 35px; /* Reduzi o preenchimento */
     border-radius: 100px; /* Garante o formato de pílula */
     text-align: center;
@@ -539,4 +583,26 @@ body {
     .price-unit {
         font-size: 0.8rem;
         transform: translateX(30px);
+    }
+    .pilar-item {
+        gap: 15px;
+        padding: 20px 0;
+    }
+    
+    .pilar-circle {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+    }
+    
+    .pilar-circle i {
+        font-size: 20px;
+    }
+
+    .pilar-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .pilar-content p {
+        font-size: 0.95rem;
     }
