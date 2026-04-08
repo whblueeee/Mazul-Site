@@ -1,7 +1,7 @@
 :root {
-    --blue: #0085FF;
+    --blue: #017EDA;
     --navy: #0A1128;
-    --red: #FF4B4B;
+    --red: #ff413e;
     --dark: #1C2321;
     --bg-light: #F2F2F2;
     --header-grey: #F5F5F5;
@@ -203,8 +203,8 @@ body {
 
 .blue .card-content { background-color: #017EDA; }
 .navy .card-content { background-color: #00053E; }
-.red .card-content { background-color: var(--red); }
-.dark .card-content { background-color: var(--dark); }
+.red .card-content { background-color: #ff413e; }
+.dark .card-content { background-color: #1c1c1c; }
 
 /* --- SISTEMA DE MODAIS (CORREÇÃO DE ROLAGEM E MARGEM) --- */
 .modal-overlay {
@@ -466,7 +466,7 @@ body {
     /* Transformando cada card em uma BOX igual ao desktop */
     .carousel-card {
         min-width: 100%;
-        padding: 30px 30px;
+        padding: 50px 50px;
         background: white;
         border: 1.5px solid #A0D2FF; /* Borda azul aplicada individualmente */
         border-radius: 30px;
