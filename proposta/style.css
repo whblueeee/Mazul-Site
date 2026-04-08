@@ -395,7 +395,7 @@ body {
 .price-pill {
     background-color: var(--blue); /* Usa sua variável de cor */
     color: white;
-    font-size: 1.0rem; /* Tamanho equilibrado (aprox 24px) */
+    font-size: 0.8rem; /* Tamanho equilibrado (aprox 24px) */
     padding: 10px 35px; /* Reduzi o preenchimento */
     border-radius: 100px; /* Garante o formato de pílula */
     text-align: center;
@@ -405,7 +405,7 @@ body {
 
 .price-unit {
     color: var(--blue);
-    font-size: 0.9rem; /* Pequeno e discreto */
+    font-size: 0.7rem; /* Pequeno e discreto */
     font-weight: 700;
     margin-top: 4px;
     /* Alinhamento à direita da pílula */
@@ -413,7 +413,7 @@ body {
     transform: translateX(40px); /* Ajusta para parecer "pendurado" na direita */
 }
 .btn-conferir2 {
-    margin-top: 100px;
+    margin-top: 70px;
     background:#ff413e;
     color: white;
     border: none;
