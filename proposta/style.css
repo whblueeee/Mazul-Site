@@ -340,7 +340,7 @@ body {
 
     .btn-voltar span { display: none; } /* Esconde texto no mobile */
     .btn-voltar i { 
-        display: block; 
+        display: fixed; 
         font-size: 28px; 
         margin: 0;
     }
