@@ -508,6 +508,103 @@ body {
     width: 28px; /* Efeito pílula para o slide atual */
     border-radius: 10px;
 }
+/* Container da Calculadora */
+.calculator-container {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.section-title {
+    color: var(--navy);
+    font-size: 1.1rem;
+    margin: 25px 0 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Planos */
+.plan-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.plan-card {
+    border: 2px solid #E2E8F0;
+    padding: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    background: white;
+}
+
+.plan-card input { position: absolute; opacity: 0; }
+
+.plan-card:has(input:checked) {
+    border-color: var(--blue);
+    background: #F0F7FF;
+}
+
+.plan-info span { display: block; font-size: 0.85rem; color: #666; }
+.plan-info strong { font-size: 1.1rem; color: var(--blue); }
+
+/* Categorias e Itens */
+.services-category h5 {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--blue);
+    margin: 25px 0 10px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.service-text span { font-weight: 600; color: var(--navy); display: block; }
+.service-text small { color: #888; font-size: 0.8rem; }
+
+.service-action { display: flex; align-items: center; gap: 12px; }
+
+.price-tag {
+    font-weight: bold;
+    color: var(--blue);
+    font-size: 0.9rem;
+}
+
+.qty-input {
+    width: 55px;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Resumo Final */
+.calc-summary {
+    background: var(--navy);
+    color: white;
+    padding: 25px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+}
+
+#total-display { font-size: 1.8rem; color: #fff; margin: 0; }
+#summary-text { font-size: 0.9rem; opacity: 0.8; margin-bottom: 5px; }
+
+
 /* RODAPÉ */
 .bottom-bar { 
     background: var(--blue); 
@@ -606,3 +703,5 @@ body {
     .pilar-content p {
         font-size: 0.95rem;
     }
+    .plan-options { grid-template-columns: 1fr; }
+    .calc-summary { flex-direction: column; gap: 20px; text-align: center; }

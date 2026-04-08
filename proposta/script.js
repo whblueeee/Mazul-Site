@@ -97,3 +97,65 @@ function currentSlideTo(index) {
     currentSlide = index;
     updateCarouselUI();
 }
+
+function calculateTotal() {
+    const selectedPlan = document.querySelector('input[name="base_plan"]:checked');
+    if (!selectedPlan) return;
+
+    let baseValue = parseFloat(selectedPlan.value);
+    let planName = selectedPlan.getAttribute('data-name');
+    
+    // REGRA: Se houver plano fixo (baseValue > 0), ativa o desconto de 15%
+    let temPlanoAtivo = baseValue > 0;
+
+    let itemsTotal = 0;
+    let itemsCount = 0;
+    const inputs = document.querySelectorAll('.qty-input');
+    
+    inputs.forEach(input => {
+        let price = parseFloat(input.getAttribute('data-price'));
+        let qty = parseInt(input.value) || 0;
+        if(qty > 0) {
+            itemsTotal += (price * qty);
+            itemsCount += qty;
+        }
+    });
+
+    // APLICA O DESCONTO APENAS NOS ITENS EXTRAS
+    let valorExtras = itemsTotal;
+    if (temPlanoAtivo) {
+        valorExtras = itemsTotal * 0.85; // Tira 15%
+    }
+
+    const totalFinal = baseValue + valorExtras;
+
+    // ATUALIZA O TOTAL NA TELA
+    document.getElementById('total-display').innerText = totalFinal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    
+    // ATUALIZA O TEXTO DO RESUMO
+    let resumo = temPlanoAtivo ? planName : "Modelo On-Demand";
+    if(itemsCount > 0) resumo += ` + ${itemsCount} item(ns) extra(s)`;
+    document.getElementById('summary-text').innerText = resumo;
+
+    // MOSTRA/ESCONDE O AVISO VERDE DE DESCONTO
+    const aviso = document.getElementById('desconto-aviso');
+    if (aviso) {
+        // Só mostra se tiver plano selecionado E algum item extra adicionado
+        aviso.style.display = (temPlanoAtivo && itemsCount > 0) ? 'block' : 'none';
+    }
+}
+
+function sendToWhatsApp() {
+    const total = document.getElementById('total-display').innerText;
+    const resumo = document.getElementById('summary-text').innerText;
+    const numero = "55XXXXXXXXXXX"; // COLOQUE SEU NÚMERO AQUI
+    const texto = `Olá! Realizei uma simulação de orçamento no site:%0A%0A*Modelo:* ${resumo}%0A*Investimento Estimado:* ${total}`;
+    
+    window.open(`https://wa.me/${numero}?text=${texto}`, '_blank');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if(document.querySelector('input[name="base_plan"]')) {
+        calculateTotal();
+    }
+});

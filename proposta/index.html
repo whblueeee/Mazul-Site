@@ -230,7 +230,7 @@ Sinta-se à vontade para navegar pelos detalhes desta proposta e escolher por on
                             <p class="plan-tagline">Para ciclos de campanha que exigem alto impacto e produções audiovisuais.</p>
                             <div class="plan-details">
                                 <p><strong>Ecossistema Digital & Audiovisual:</strong>Tudo o que o plano Fee Mensal oferece + criação de Motion graphics e Edição de Vídeos Curtos (até 1 min) para comunicação interna ou externa.</p>
-                                <p><strong>2-3 Projetos Estruturados Inclusos/Mês:</strong>Desenvolvimento completo de um projeto de alta complexidade por mês (Ex: Uma Identidade Visual completa, Guia de Marca ou Campanha Sazonal) já incluso no valor do fee, sem custos extras.</p>
+                                <p><strong>2-3 Projetos Estruturados Inclusos/Mês:</strong>Desenvolvimento completo de 2-3 projetos de alta complexidade por mês (Ex: Uma Identidade Visual completa, Guia de Marca ou Campanha Sazonal) já incluso no valor, sem custos extras.</p>
                                 <p><strong>SLA de Urgência:</strong>Atendimento com prioridade absoluta e prazos de entrega reduzidos para situações de crise ou demandas imediatas simples em até 12h úteis.</p>
                                                                 <p><strong>Suporte em Campanhas 360º:</strong>Criação de enxoval completo para lançamentos internos (Branding da campanha, materiais impressos, sinalização e peças digitais).</p>
 
@@ -257,18 +257,94 @@ Sinta-se à vontade para navegar pelos detalhes desta proposta e escolher por on
     </div>
 </div>
     <!-- POP-UP 3: SERVIÇOS -->
-    <div id="modal-servicos" class="modal-overlay">
-        <div class="modal-box">
-            <button class="btn-voltar" onclick="closeModal('modal-servicos')">
-                <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
-            </button>
-            <img src="logo-mazul.png" alt="Logo" class="logo-modal">
-            <h2 class="modal-title">Tabela de Serviços</h2>
-            <p class="modal-subtitle">Tudo o que você pode precisar para escalar sua marca.</p>
-            <!-- Conteúdo de serviços aqui -->
+<div id="modal-servicos" class="modal-overlay">
+    <div class="modal-box">
+        <button class="btn-voltar" onclick="closeModal('modal-servicos')">
+            <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
+        </button>
+        <h2 class="modal-title">Tabela de Serviços</h2>
+        <p class="modal-subtitle">Selecione um plano mensal ou monte seu pedido com itens avulsos (On-Demand).</p>
+
+        <div class="calculator-container">
+            <!-- 1. ESCOLHA DO MODELO -->
+            <div class="calc-section">
+                <h4 class="section-title"><i class='bx bx-star'></i> 1. Modelo de Contratação</h4>
+                <div class="plan-options">
+                    <label class="plan-card">
+                        <input type="radio" name="base_plan" value="0" data-name="On-Demand (Avulso)" onchange="calculateTotal()">
+                        <div class="plan-info">
+                            <span>Sob Demanda</span>
+                            <strong>Sem Plano</strong>
+                        </div>
+                    </label>
+                    <label class="plan-card">
+                        <input type="radio" name="base_plan" value="4800" data-name="Fee Mensal" onchange="calculateTotal()" checked>
+                        <div class="plan-info">
+                            <span>Plano Fee</span>
+                            <strong>R$ 4.800/mês</strong>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 2. LISTAGEM DE SERVIÇOS -->
+            <div class="calc-section">
+                <h4 class="section-title"><i class='bx bx-list-check'></i> 2. Selecione as Demandas</h4>
+                
+                <div class="services-category">
+                    <h5>Social Media & Digital</h5>
+                    <div class="service-item">
+                        <div class="service-text">
+                            <span>Card Estático / Banner</span>
+                            <small>SLA: 48h úteis</small>
+                        </div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 150</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="150" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text">
+                            <span>Motion Graphics (Reels/Ads)</span>
+                            <small>SLA: 4 dias úteis</small>
+                        </div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 450</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="450" oninput="calculateTotal()">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-category">
+                    <h5>Institucional & Offline</h5>
+                    <div class="service-item">
+                        <div class="service-text">
+                            <span>Apresentação PPT (até 10 slides)</span>
+                            <small>SLA: 4 dias úteis</small>
+                        </div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 800</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="800" oninput="calculateTotal()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. RESUMO E CTA -->
+            <div class="calc-summary">
+                <div class="summary-details">
+                    <p id="summary-text">Fee Mensal Selecionado</p>
+                    <!-- AVISO DE DESCONTO -->
+                    <p id="desconto-aviso" style="color: #25D366; font-size: 0.75rem; font-weight: bold; margin: 0; display: none;">
+                        ✓ 15% OFF aplicado nos extras
+                    </p>
+                    <h2 id="total-display">R$ 4.800,00</h2>
+                </div>
+            </div>
         </div>
     </div>
-
+</div>
     <!-- POP-UP 4: TERMOS -->
 <!-- MODAL: TERMOS E CONDIÇÕES -->
 <div id="modal-termos" class="modal-overlay">
