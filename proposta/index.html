@@ -271,7 +271,7 @@ Sinta-se à vontade para navegar pelos detalhes desta proposta e escolher por on
                 <h4 class="section-title"><i class='bx bx-star'></i> 1. Modelo de Contratação</h4>
                 <div class="plan-options">
                     <label class="plan-card">
-                        <input type="radio" name="base_plan" value="0" data-name="On-Demand (Avulso)" onchange="calculateTotal()">
+                        <input type="radio" name="base_plan" value="0" data-name="On-Demand" onchange="calculateTotal()">
                         <div class="plan-info">
                             <span>Sob Demanda</span>
                             <strong>Sem Plano</strong>
@@ -291,41 +291,124 @@ Sinta-se à vontade para navegar pelos detalhes desta proposta e escolher por on
             <div class="calc-section">
                 <h4 class="section-title"><i class='bx bx-list-check'></i> 2. Selecione as Demandas</h4>
                 
+                <!-- SEÇÃO 1: GRÁFICOS DE ROTINA -->
                 <div class="services-category">
-                    <h5>Social Media & Digital</h5>
+                    <h5>Gráficos de Rotina (Fluxo Mensal)</h5>
+                    
                     <div class="service-item">
-                        <div class="service-text">
-                            <span>Card Estático / Banner</span>
-                            <small>SLA: 48h úteis</small>
-                        </div>
+                        <div class="service-text"><span>Card de E-mail / Comunicado</span><small>SLA: 48h úteis</small></div>
                         <div class="service-action">
-                            <span class="price-tag">R$ 150</span>
-                            <input type="number" class="qty-input" value="0" min="0" data-price="150" oninput="calculateTotal()">
+                            <span class="price-tag">R$ 350</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="350" oninput="calculateTotal()">
                         </div>
                     </div>
 
                     <div class="service-item">
-                        <div class="service-text">
-                            <span>Motion Graphics (Reels/Ads)</span>
-                            <small>SLA: 4 dias úteis</small>
+                        <div class="service-text"><span>Post Estático (Social Media)</span><small>SLA: 48h úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 280</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="280" oninput="calculateTotal()">
                         </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Carrossel (até 6 telas)</span><small>SLA: 72h úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 600</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="600" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Banner Digital / Assinatura</span><small>SLA: 48h úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 250</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="250" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Edição de Vídeo Curto</span><small>SLA: 4 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 850</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="850" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Motion Simples / Gif / Stickers</span><small>SLA: 72h úteis</small></div>
                         <div class="service-action">
                             <span class="price-tag">R$ 450</span>
                             <input type="number" class="qty-input" value="0" min="0" data-price="450" oninput="calculateTotal()">
                         </div>
                     </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Ajustes de Papelaria</span><small>SLA: 48h úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 200</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="200" oninput="calculateTotal()">
+                        </div>
+                    </div>
                 </div>
 
+                <!-- SEÇÃO 2: GRÁFICOS ESTRUTURADOS -->
                 <div class="services-category">
-                    <h5>Institucional & Offline</h5>
+                    <h5>Gráficos Estruturados</h5>
+                    
                     <div class="service-item">
-                        <div class="service-text">
-                            <span>Apresentação PPT (até 10 slides)</span>
-                            <small>SLA: 4 dias úteis</small>
-                        </div>
+                        <div class="service-text"><span>Identidade Visual Completa</span><small>SLA: 10 dias úteis</small></div>
                         <div class="service-action">
-                            <span class="price-tag">R$ 800</span>
-                            <input type="number" class="qty-input" value="0" min="0" data-price="800" oninput="calculateTotal()">
+                            <span class="price-tag">R$ 1.200</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="1200" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Key Art de Campanha</span><small>SLA: 7 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 1.500</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="1500" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Criação de Pattern (Estampa)</span><small>SLA: 5 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 750</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="750" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>E-book / Playbook (20 pág)</span><small>SLA: 10 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 1.800</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="1800" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Template de Apresentação</span><small>SLA: 7 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 900</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="900" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Projeto de Envelopamento</span><small>SLA: 7 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 1.100</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="1100" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Design de Brindes</span><small>SLA: 5 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 650</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="650" oninput="calculateTotal()">
                         </div>
                     </div>
                 </div>
@@ -335,12 +418,12 @@ Sinta-se à vontade para navegar pelos detalhes desta proposta e escolher por on
             <div class="calc-summary">
                 <div class="summary-details">
                     <p id="summary-text">Fee Mensal Selecionado</p>
-                    <!-- AVISO DE DESCONTO -->
                     <p id="desconto-aviso" style="color: #25D366; font-size: 0.75rem; font-weight: bold; margin: 0; display: none;">
                         ✓ 15% OFF aplicado nos extras
                     </p>
                     <h2 id="total-display">R$ 4.800,00</h2>
                 </div>
+            
             </div>
         </div>
     </div>
