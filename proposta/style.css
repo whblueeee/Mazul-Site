@@ -447,7 +447,6 @@ body {
 
 /* --- RESPONSIVIDADE (Mobile) --- */
 @media (max-width: 768px) {
-@media (max-width: 768px) {
     /* Mantém o espaçamento externo (respiro da tela) */
     .modal-overlay {
         padding: 80px 15px 40px 15px; 
@@ -458,9 +457,10 @@ body {
 
     /* AJUSTE CHAVE: Reduzimos o padding interno da caixa branca */
     .modal-box {
-        padding: 40px 12px; /* Reduzi drasticamente as laterais (de 40px para 12px) */
+        padding: 40px 20px; /* Reduzi drasticamente as laterais (de 40px para 12px) */
         width: 100%;
         border-radius: 30px;
+        
     }
 
     /* ESCONDE CONTROLES */
@@ -512,4 +512,3 @@ body {
     .social-links { justify-content: center; }
     .modal-title { font-size: 1.5rem; }
     .plan-title { font-size: 1.4rem; }
-}
