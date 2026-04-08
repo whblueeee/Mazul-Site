@@ -10,157 +10,157 @@
 </head>
 <body>
 
+    <!-- OVERLAY DE VÍDEO INTRO -->
     <div id="intro-overlay">
         <video id="intro-video" autoplay muted playsinline>
             <source src="video.mp4" type="video/mp4">
         </video>
     </div>
 
-<header class="top-nav">
-    <div class="logo-bar">
-        <img src="logo1.png" alt="Mazul" class="logo-central">
-    </div>
-    <div class="info-badge-container">
-        <div class="info-badge">
-            <span class="badge-blue">Proposta de Orçamento</span>
-            <span class="badge-white">Moveon + Mazul Design</span>
+    <!-- CABEÇALHO -->
+    <header class="top-nav">
+        <div class="logo-bar">
+            <img src="logo1.png" alt="Mazul" class="logo-central">
         </div>
-    </div>
-</header>
+        <div class="info-badge-container">
+            <div class="info-badge">
+                <span class="badge-blue">Proposta de Orçamento</span>
+                <span class="badge-white">Moveon + Mazul Design</span>
+            </div>
+        </div>
+    </header>
 
-        <main class="presentation-container">
-            <section class="profile-section">
-                <div class="avatar-wrapper">
-                    <img src="marcella.jpg.png" alt="Marcella" class="avatar-img">
+    <main class="presentation-container">
+        <!-- SEÇÃO DE PERFIL -->
+        <section class="profile-section">
+            <div class="avatar-wrapper">
+                <img src="marcella.jpg.png" alt="Marcella" class="avatar-img">
+            </div>
+            <div class="profile-text">
+                <h1>Mazul Design</h1>
+                <p>Olá, eu sou a Marcella, fundadora da Mazul Design! Crio soluções visuais criativas para marcas, projetos e demandas específicas. Se você precisa de algo que realmente funcione visualmente, eu posso te ajudar!</p>
+            </div>
+            <div class="social-links-container">
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mazuldesign/" target="_blank" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://www.tiktok.com/@mazuldesign" target="_blank" aria-label="TikTok"><i class='bx bxl-tiktok'></i></a>
+                    <a href="https://www.behance.net/marcellamoura1" target="_blank" aria-label="Behance"><i class='bx bxl-behance'></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=5534920005345&text&type=phone_number&app_absent=0" target="_blank" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
                 </div>
-                <div class="profile-text">
-                    <h1>Mazul Design</h1>
-                    <p>Olá, eu sou a Marcella, fundadora da Mazul Design! Crio soluções visuais criativas para marcas, projetos e demandas específicas. Se você precisa de algo que realmente funcione visualmente, eu posso te ajudar!</p>
+            </div>
+        </section>
+
+        <!-- GRID DE CARDS -->
+        <section class="grid-section">
+            <!-- CARD 1 -->
+            <div class="card blue" onclick="openModal('modal-pilares')">
+                <div class="card-content">
+                    <img src="icon-pilares.png" alt="Ícone">
                 </div>
-             <div class="social-links-container">
-            <div class="social-links">
-                <a href="https://www.instagram.com/mazuldesign/" target="_blank" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
-                <a href="https://www.tiktok.com/@mazuldesign" target="_blank" aria-label="TikTok"><i class='bx bxl-tiktok'></i></a>
-                <a href="https://www.behance.net/marcellamoura1" target="_blank" aria-label="Behance"><i class='bx bxl-behance'></i></a>
-                <a href="https://api.whatsapp.com/send/?phone=5534920005345&text&type=phone_number&app_absent=0" target="_blank" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+                <div class="card-footer">Pilares da Parceria</div>
             </div>
 
-</div>
-            </section>
-
-            <section class="grid-section">
-                <!-- CARD 1 -->
-                <div class="card blue" onclick="openModal('modal-pilares')">
-                    <div class="card-content">
-                        <img src="icon-pilares.png" alt="Ícone">
-                    </div>
-                    <div class="card-footer">Pilares da Parceria</div>
+            <!-- CARD 2 -->
+            <div class="card navy" onclick="openModal('modal-orcamento')">
+                <div class="card-content">
+                    <img src="icon-orcamento.png" alt="Ícone">
                 </div>
+                <div class="card-footer">Opções de Orçamento</div>
+            </div>
 
-                <!-- CARD 2 -->
-                <div class="card navy" onclick="openModal('modal-orcamento')">
-                    <div class="card-content">
-                        <img src="icon-orcamento.png" alt="Ícone">
-                    </div>
-                    <div class="card-footer">Opções de Orçamento</div>
+            <!-- CARD 3 -->
+            <div class="card red" onclick="openModal('modal-servicos')">
+                <div class="card-content">
+                    <img src="icon-servicos.png" alt="Ícone">
                 </div>
+                <div class="card-footer">Serviços Adicionais</div>
+            </div>
 
-                <!-- CARD 3 -->
-                <div class="card red" onclick="openModal('modal-servicos')">
-                    <div class="card-content">
-                        <img src="icon-servicos.png" alt="Ícone">
-                    </div>
-                    <div class="card-footer">Serviços Adicionais</div>
+            <!-- CARD 4 -->
+            <div class="card dark" onclick="openModal('modal-termos')">
+                <div class="card-content">
+                    <img src="icon-termos.png" alt="Ícone">
                 </div>
+                <div class="card-footer">Termos e Condições</div>
+            </div>
+        </section>
+    </main>
 
-                <!-- CARD 4 -->
-                <div class="card dark" onclick="openModal('modal-termos')">
-                    <div class="card-content">
-                        <img src="icon-termos.png" alt="Ícone">
-                    </div>
-                    <div class="card-footer">Termos e Condições</div>
-                </div>
-            </section>
-        </main>
-        
-        <footer class="bottom-bar"></footer>
-    </div>
+    <footer class="bottom-bar"></footer>
 
     <!-- POP-UP 1: PILARES -->
-<div id="modal-pilares" class="modal-overlay">
-    <div class="modal-box box-pilares">
-        <!-- O parâmetro deve ser o ID acima, entre aspas simples -->
-        <button class="btn-voltar" onclick="closeModal('modal-pilares')">Voltar</button>
-        
-        <div class="modal-header">
-            <h2 class="modal-title">Pilares da Parceria</h2>
-            <p class="modal-subtitle">Design estratégico focado em agilidade e integração total com o time Brasil TecPar.</p>
-        </div>
-
-        <div class="pilares-list">
-            <!-- Item 1 -->
-            <div class="pilar-item">
-                <div class="pilar-circle">
-                    <i class='bx bxs-component'></i>
-                </div>
-                <div class="pilar-content">
-                    <h3>Workflow Flexível</h3>
-                    <p>Adequação total às ferramentas de gestão da Brasil TecPar (Jira, Planner, Trello, etc). Me adapto ao fluxo que já funciona para o seu time.</p>
-                </div>
+    <div id="modal-pilares" class="modal-overlay">
+        <div class="modal-box box-pilares">
+            <button class="btn-voltar" onclick="closeModal('modal-pilares')">
+                <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
+            </button>    
+            <div class="modal-header">
+                <h2 class="modal-title">Pilares da Parceria</h2>
+                <p class="modal-subtitle">Design estratégico focado em agilidade e integração total com o time Brasil TecPar.</p>
             </div>
 
-            <!-- Item 2 -->
-            <div class="pilar-item">
-                <div class="pilar-circle">
-                    <i class='bx bxs-chat'></i>
+            <div class="pilares-list">
+                <div class="pilar-item">
+                    <div class="pilar-circle"><i class='bx bxs-component'></i></div>
+                    <div class="pilar-content">
+                        <h3>Workflow Flexível</h3>
+                        <p>Adequação total às ferramentas de gestão da Brasil TecPar (Jira, Planner, Trello, etc). Me adapto ao fluxo que já funciona para o seu time.</p>
+                    </div>
                 </div>
-                <div class="pilar-content">
-                    <h3>Comunicação Fluida</h3>
-                    <p>Canal aberto via WhatsApp e E-mail para alinhamentos rápidos.</p>
+                <div class="pilar-item">
+                    <div class="pilar-circle"><i class='bx bxs-chat'></i></div>
+                    <div class="pilar-content">
+                        <h3>Comunicação Fluida</h3>
+                        <p>Canal aberto via WhatsApp e E-mail para alinhamentos rápidos.</p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="pilar-item">
-                <div class="pilar-circle">
-                    <i class='bx bxs-cloud-upload'></i>
-                </div>
-                <div class="pilar-content">
-                    <h3>Gestão de Assets</h3>
-                    <p>Histórico de artes sempre acessível e padronizado via Google Drive.</p>
+                <div class="pilar-item">
+                    <div class="pilar-circle"><i class='bx bxs-cloud-upload'></i></div>
+                    <div class="pilar-content">
+                        <h3>Gestão de Assets</h3>
+                        <p>Histórico de artes sempre acessível e padronizado via Google Drive.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- POP-UP 2: ORÇAMENTO -->
     <div id="modal-orcamento" class="modal-overlay">
         <div class="modal-box">
-            <button class="btn-voltar" onclick="closeModal('modal-orcamento')">Voltar</button>
+            <button class="btn-voltar" onclick="closeModal('modal-orcamento')">
+                <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
+            </button>        
             <img src="logo-mazul.png" alt="Logo" class="logo-modal">
             <h2 class="modal-title">Opções de Orçamento</h2>
-            <p>Aqui você descreve os valores e pacotes da proposta.</p>
+            <p class="modal-subtitle">Confira abaixo os pacotes personalizados para sua necessidade.</p>
+            <!-- Conteúdo de orçamento aqui -->
         </div>
     </div>
 
     <!-- POP-UP 3: SERVIÇOS -->
     <div id="modal-servicos" class="modal-overlay">
         <div class="modal-box">
-            <button class="btn-voltar" onclick="closeModal('modal-servicos')">Voltar</button>
+            <button class="btn-voltar" onclick="closeModal('modal-servicos')">
+                <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
+            </button>
             <img src="logo-mazul.png" alt="Logo" class="logo-modal">
             <h2 class="modal-title">Serviços Adicionais</h2>
-            <p>Aqui você lista o que mais pode oferecer além do escopo principal.</p>
+            <p class="modal-subtitle">Tudo o que você pode precisar para escalar sua marca.</p>
+            <!-- Conteúdo de serviços aqui -->
         </div>
     </div>
 
     <!-- POP-UP 4: TERMOS -->
     <div id="modal-termos" class="modal-overlay">
         <div class="modal-box">
-            <button class="btn-voltar" onclick="closeModal('modal-termos')">Voltar</button>
+            <button class="btn-voltar" onclick="closeModal('modal-termos')">
+                <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
+            </button>
             <img src="logo-mazul.png" alt="Logo" class="logo-modal">
             <h2 class="modal-title">Termos e Condições</h2>
-            <p>Prazos, formas de pagamento e políticas de revisão.</p>
+            <p class="modal-subtitle">Informações importantes sobre prazos, revisões e pagamentos.</p>
+            <!-- Conteúdo de termos aqui -->
         </div>
     </div>
 

@@ -26,10 +26,10 @@ function openModal(id) {
     const modal = document.getElementById(id);
     modal.style.display = 'flex';
     
-    // Trava o scroll da página principal (background)
+    // Trava o scroll da página de fundo
     document.body.style.overflow = 'hidden';
     
-    // Garante que o modal sempre abra no topo do conteúdo
+    // Faz o scroll do modal (overlay) ir para o topo
     modal.scrollTop = 0;
 }
 
@@ -37,14 +37,13 @@ function closeModal(id) {
     const modal = document.getElementById(id);
     modal.style.display = 'none';
     
-    // Devolve o scroll para a página principal
+    // Devolve o scroll para a página
     document.body.style.overflow = 'auto';
 }
 
 // Fechar ao clicar na área escura (overlay)
 // Como o overlay agora tem scroll, o clique deve ser validado cuidadosamente
 window.onclick = function(event) {
-    // Verifica se o clique foi EXATAMENTE no fundo escuro e não na caixa branca
     if (event.target.classList.contains('modal-overlay')) {
         event.target.style.display = 'none';
         document.body.style.overflow = 'auto';

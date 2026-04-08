@@ -68,22 +68,6 @@ body {
 
 #intro-video { width: 100%; height: 100%; object-fit: cover; }
 
-/* Conteúdo Principal */
-#main-content {
-    opacity: 0;
-    transform: translateY(100px);
-    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
-    display: flex;
-    flex-direction: column;
-    flex: 1 0 auto; 
-    min-height: 100vh;
-}
-
-#main-content.reveal {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* HEADER */
 .top-nav {
     width: 100%;
@@ -216,7 +200,7 @@ body {
 .red .card-content { background-color: var(--red); }
 .dark .card-content { background-color: var(--dark); }
 
-/* --- SISTEMA DE MODAIS (ROLAGEM NATURAL) --- */
+/* --- SISTEMA DE MODAIS (CORREÇÃO DE ROLAGEM E MARGEM) --- */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0;
@@ -225,42 +209,46 @@ body {
     display: none;
     z-index: 10000;
     justify-content: center;
-    align-items: flex-start; /* Alinha no topo para permitir scroll de cima a baixo */
-    overflow-y: auto; /* A rolagem agora acontece aqui no overlay */
-    padding: 60px 0; /* Respiro para a box não colar no topo/fundo da janela */
+    align-items: flex-start; 
+    overflow-y: scroll; /* Barra no canto da tela */
+    padding: 100px 20px 40px 20px; /* Padding superior garante espaço para o botão */
 }
 
 .modal-box {
     background: white;
-    width: 90%;
-    max-width: 800px;
-    padding: 80px 60px; 
+    width: 100%;
+    max-width: 900px;
+    padding: 60px 100px;
     border-radius: 40px;
     position: relative;
-    height: auto;
-    max-height: none; /* Remove a limitação de altura interna */
-    overflow-y: visible; /* O conteúdo flui naturalmente */
-    margin-bottom: 20px; /* Garante espaço extra no final da rolagem */
+    margin: 0 auto;
 }
 
-/* Botões de voltar */
-.btn-voltar, .btn-voltar-modal {
+/* BOTÃO VOLTAR (DESKTOP) */
+.btn-voltar {
     position: absolute;
-    top: 30px; 
-    left: 40px;
+    top: -65px; 
+    left: 0;
     background: var(--blue);
     color: white;
     border: none;
-    padding: 10px 30px;
+    padding: 12px 30px;
     border-radius: 50px;
     cursor: pointer;
     font-weight: bold;
-    z-index: 10;
-    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10001;
+    transition: all 0.3s ease;
 }
 
-.btn-voltar:hover, .btn-voltar-modal:hover {
-    transform: scale(1.05);
+.btn-voltar i { display: none; font-size: 24px; } /* Esconde seta no desktop */
+.btn-voltar span { display: block; } /* Mostra texto no desktop */
+
+.btn-voltar:hover {
+    background-color: var(--navy);
+    transform: translateY(-2px);
 }
 
 .modal-title { 
@@ -277,8 +265,7 @@ body {
     font-size: 1.1rem;
     text-align: center;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 40px auto;
 }
 
 /* --- DESIGN ESPECÍFICO: MODAL PILARES --- */
@@ -289,47 +276,27 @@ body {
 
 .box-pilares .pilar-item {
     display: flex;
-    align-items: center;
-    gap: 35px;
-    padding: 40px 0;
-    border-top: 1px solid rgba(0, 133, 255, 0.2);
+    align-items: flex-start;
+    gap: 25px;
+    padding: 30px 0;
+    border-top: 1px solid rgba(0, 133, 255, 0.1);
 }
 
-.box-pilares .pilar-item:first-child {
-    border-top: none;
-}
-
-.box-pilares .pilar-item:last-child {
-    border-bottom: 1px solid rgba(0, 133, 255, 0.2);
-}
+.box-pilares .pilar-item:first-child { border-top: none; }
+.box-pilares .pilar-item:last-child { border-bottom: 1px solid rgba(0, 133, 255, 0.2); }
 
 .box-pilares .pilar-circle {
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
+    width: 50px; height: 50px;
+    min-width: 50px;
     background-color: var(--blue);
     border-radius: 50%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; align-items: center;
 }
 
-.box-pilares .pilar-circle i {
-    color: white;
-    font-size: 28px;
-}
-
-.box-pilares .pilar-content h3 {
-    font-size: 1.2rem;
-    color: var(--navy);
-    margin-bottom: 8px;
-}
-
-.box-pilares .pilar-content p {
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.6;
-}
+.box-pilares .pilar-circle i { color: white; font-size: 28px; }
+.box-pilares .pilar-content h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
+.box-pilares .pilar-content p { font-size: 1rem; color: #444; line-height: 1.6; }
 
 /* RODAPÉ */
 .bottom-bar { 
@@ -340,26 +307,43 @@ body {
     flex-shrink: 0;
 }
 
-/* RESPONSIVIDADE GERAL */
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
     .presentation-container { padding: 20px; flex-direction: column; align-items: center; }
     .grid-section { grid-template-columns: 1fr; width: 100%; }
     .avatar-wrapper { width: 180px; height: 180px; margin: 0 auto 20px auto; }
     .profile-section { text-align: center; }
     .social-links { justify-content: center; }
-    
+
+    .modal-overlay {
+        padding: 80px 15px 40px 15px; /* Mantém a margem da caixa no mobile */
+    }
+
     .modal-box {
-        padding: 80px 25px 40px 25px;
+        padding: 40px 25px;
+        width: 100%;
+        border-radius: 30px;
     }
 
-    .box-pilares .pilar-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
+    .modal-title { font-size: 1.8rem; }
+
+    /* BOTÃO VOLTAR (MOBILE: ÍCONE) */
+    .btn-voltar {
+        top: -60px;
+        left: 0;
+        width: 45px;
+        height: 45px;
+        padding: 0;
+        border-radius: 50%;
+        justify-content: center;
     }
 
-    .btn-voltar, .btn-voltar-modal {
-        left: 50%;
-        transform: translateX(-50%);
+    .btn-voltar span { display: none; } /* Esconde texto no mobile */
+    .btn-voltar i { 
+        display: block; 
+        font-size: 28px; 
+        margin: 0;
     }
+
+    .box-pilares .pilar-item { padding: 25px 0; gap: 15px; }
 }
