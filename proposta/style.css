@@ -202,7 +202,7 @@ body {
 }
 
 .blue .card-content { background-color: #017EDA; }
-.navy .card-content { background-color: var(--navy); }
+.navy .card-content { background-color: #00053E; }
 .red .card-content { background-color: var(--red); }
 .dark .card-content { background-color: var(--dark); }
 
