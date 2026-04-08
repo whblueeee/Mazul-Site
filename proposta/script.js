@@ -2,12 +2,12 @@ const video = document.getElementById('intro-video');
 const overlay = document.getElementById('intro-overlay');
 const content = document.getElementById('main-content');
 
-// 1. Quando o vídeo terminar ou após 4 segundos (caso o vídeo seja longo)
+// --- 1. LÓGICA DA INTRO (VÍDEO) ---
+
 video.onended = function() {
     startFade();
 };
 
-// Fallback caso o vídeo demore a carregar
 setTimeout(() => {
     if (overlay.style.display !== 'none') startFade();
 }, 5000);
@@ -17,14 +17,49 @@ function startFade() {
     setTimeout(() => {
         overlay.style.display = 'none';
         content.classList.add('reveal');
-    }, 1500); // Tempo do fade out
+    }, 1500); 
 }
 
-// 2. Lógica dos Modais
+// --- 2. LÓGICA DOS MODAIS (ROLAGEM NO OVERLAY) ---
+
 function openModal(id) {
-    document.getElementById(id).style.display = 'flex';
+    const modal = document.getElementById(id);
+    modal.style.display = 'flex';
+    
+    // Trava o scroll da página principal (background)
+    document.body.style.overflow = 'hidden';
+    
+    // Garante que o modal sempre abra no topo do conteúdo
+    modal.scrollTop = 0;
 }
 
 function closeModal(id) {
-    document.getElementById(id).style.display = 'none';
+    const modal = document.getElementById(id);
+    modal.style.display = 'none';
+    
+    // Devolve o scroll para a página principal
+    document.body.style.overflow = 'auto';
 }
+
+// Fechar ao clicar na área escura (overlay)
+// Como o overlay agora tem scroll, o clique deve ser validado cuidadosamente
+window.onclick = function(event) {
+    // Verifica se o clique foi EXATAMENTE no fundo escuro e não na caixa branca
+    if (event.target.classList.contains('modal-overlay')) {
+        event.target.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+};
+
+// Fechar ao apertar a tecla 'Esc'
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        const modals = document.querySelectorAll('.modal-overlay');
+        modals.forEach(modal => {
+            if (modal.style.display === 'flex') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+});

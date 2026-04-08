@@ -6,12 +6,13 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Proposta de Orçamento | Mazul Design</title>
     <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
 
     <div id="intro-overlay">
         <video id="intro-video" autoplay muted playsinline>
-            <source src="intro.mp4" type="video/mp4">
+            <source src="video.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -36,12 +37,15 @@
                     <h1>Mazul Design</h1>
                     <p>Olá, eu sou a Marcella, fundadora da Mazul Design! Crio soluções visuais criativas para marcas, projetos e demandas específicas. Se você precisa de algo que realmente funcione visualmente, eu posso te ajudar!</p>
                 </div>
-                <div class="pagination-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
+             <div class="social-links-container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/mazuldesign/" target="_blank" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.tiktok.com/@mazuldesign" target="_blank" aria-label="TikTok"><i class='bx bxl-tiktok'></i></a>
+                <a href="https://www.behance.net/marcellamoura1" target="_blank" aria-label="Behance"><i class='bx bxl-behance'></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=5534920005345&text&type=phone_number&app_absent=0" target="_blank" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+            </div>
+
+</div>
             </section>
 
             <section class="grid-section">
@@ -83,23 +87,52 @@
     </div>
 
     <!-- POP-UP 1: PILARES -->
-    <div id="modal-pilares" class="modal-overlay">
-        <div class="modal-box">
-            <button class="btn-voltar" onclick="closeModal('modal-pilares')">Voltar</button>
-            <img src="logo-mazul.png" alt="Logo" class="logo-modal">
+<div id="modal-pilares" class="modal-overlay">
+    <div class="modal-box box-pilares">
+        <!-- O parâmetro deve ser o ID acima, entre aspas simples -->
+        <button class="btn-voltar" onclick="closeModal('modal-pilares')">Voltar</button>
+        
+        <div class="modal-header">
             <h2 class="modal-title">Pilares da Parceria</h2>
             <p class="modal-subtitle">Design estratégico focado em agilidade e integração total com o time Brasil TecPar.</p>
-            <div class="modal-list">
-                <div class="list-item">
-                    <div class="bullet"></div>
-                    <div>
-                        <strong>Workflow Flexível</strong>
-                        <p>Adequação total às ferramentas de gestão da Brasil TecPar (Jira, Planner, Trello, etc).</p>
-                    </div>
+        </div>
+
+        <div class="pilares-list">
+            <!-- Item 1 -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bxs-component'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Workflow Flexível</h3>
+                    <p>Adequação total às ferramentas de gestão da Brasil TecPar (Jira, Planner, Trello, etc). Me adapto ao fluxo que já funciona para o seu time.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bxs-chat'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Comunicação Fluida</h3>
+                    <p>Canal aberto via WhatsApp e E-mail para alinhamentos rápidos.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bxs-cloud-upload'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Gestão de Assets</h3>
+                    <p>Histórico de artes sempre acessível e padronizado via Google Drive.</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <!-- POP-UP 2: ORÇAMENTO -->
     <div id="modal-orcamento" class="modal-overlay">

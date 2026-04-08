@@ -7,26 +7,24 @@
     --header-grey: #F5F5F5;
 }
 
-/* 1. CORREÇÃO DA BARRA DE ROLAGEM (FLUTUANTE) */
+/* 1. CONFIGURAÇÃO DA BARRA DE ROLAGEM GLOBAL */
 html {
-    /* Faz a barra flutuar sobre o conteúdo sem ocupar espaço na largura */
-    overflow-y: overlay; 
+    scrollbar-gutter: stable;
+    background-color: var(--bg-light);
 }
 
 ::-webkit-scrollbar {
-    width: 8px; /* Um pouco mais fina para não cobrir informações */
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent; 
+    background: white;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--blue);
     border-radius: 10px;
-    /* Adicionei uma borda transparente para dar um "respiro" visual */
-    border: 2px solid transparent;
-    background-clip: content-box;
+    border: 2px solid white;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -40,13 +38,19 @@ html, body {
     padding: 0;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: sans-serif; 
+}
 
 body { 
     background-color: var(--bg-light); 
     overflow-x: hidden;
     display: flex; 
-    flex-direction: column; 
+    flex-direction: column;
+    width: 100%;
 }
 
 /* Intro Video */
@@ -64,7 +68,7 @@ body {
 
 #intro-video { width: 100%; height: 100%; object-fit: cover; }
 
-/* Main Content Animation */
+/* Conteúdo Principal */
 #main-content {
     opacity: 0;
     transform: translateY(100px);
@@ -91,7 +95,7 @@ body {
 .logo-bar {
     width: 100%;
     background-color: var(--header-grey);
-    padding: 8px 0;
+    padding: 12px 0;
     display: flex;
     justify-content: center;
     border-bottom: 1px solid #e0e0e0;
@@ -132,7 +136,7 @@ body {
     font-weight: 500;
 }
 
-/* CONTEÚDO PRINCIPAL */
+/* LAYOUT DE APRESENTAÇÃO */
 .presentation-container {
     display: flex;
     flex-wrap: wrap;
@@ -144,16 +148,39 @@ body {
 }
 
 .profile-section { flex: 1; min-width: 300px; text-align: left; }
+
 .avatar-wrapper {
     width: 250px; height: 250px;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 25px;
 }
+
 .avatar-img { width: 100%; height: 100%; object-fit: cover; }
+
 .profile-text h1 { font-size: 2.2rem; margin-bottom: 15px; color: var(--navy); }
 .profile-text p { color: #555; line-height: 1.6; font-size: 1.1rem; }
 
+/* SOCIAL LINKS */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: #555;
+    font-size: 28px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--blue);
+    transform: translateY(-3px);
+}
+
+/* GRID DE CARDS */
 .grid-section {
     flex: 1.2;
     display: grid;
@@ -189,58 +216,150 @@ body {
 .red .card-content { background-color: var(--red); }
 .dark .card-content { background-color: var(--dark); }
 
-/* MODAIS */
+/* --- SISTEMA DE MODAIS (ROLAGEM NATURAL) --- */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.85);
     display: none;
     z-index: 10000;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Alinha no topo para permitir scroll de cima a baixo */
+    overflow-y: auto; /* A rolagem agora acontece aqui no overlay */
+    padding: 60px 0; /* Respiro para a box não colar no topo/fundo da janela */
 }
 
 .modal-box {
     background: white;
     width: 90%;
-    max-width: 700px;
-    padding: 60px 40px;
+    max-width: 800px;
+    padding: 80px 60px; 
     border-radius: 40px;
     position: relative;
-    text-align: center;
+    height: auto;
+    max-height: none; /* Remove a limitação de altura interna */
+    overflow-y: visible; /* O conteúdo flui naturalmente */
+    margin-bottom: 20px; /* Garante espaço extra no final da rolagem */
 }
 
-.btn-voltar {
+/* Botões de voltar */
+.btn-voltar, .btn-voltar-modal {
     position: absolute;
-    top: 25px; left: 25px;
+    top: 30px; 
+    left: 40px;
     background: var(--blue);
     color: white;
     border: none;
-    padding: 10px 25px;
+    padding: 10px 30px;
     border-radius: 50px;
     cursor: pointer;
     font-weight: bold;
+    z-index: 10;
+    transition: transform 0.2s;
 }
 
-.logo-modal { height: 30px; margin-bottom: 20px; }
-.modal-title { color: var(--blue); margin-bottom: 15px; }
+.btn-voltar:hover, .btn-voltar-modal:hover {
+    transform: scale(1.05);
+}
 
-/* RODAPÉ FINAL */
+.modal-title { 
+    color: var(--blue); 
+    margin-bottom: 15px; 
+    font-size: 2.2rem; 
+    text-align: center; 
+}
+
+.modal-subtitle { 
+    color: #666; 
+    margin-bottom: 40px; 
+    line-height: 1.6; 
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- DESIGN ESPECÍFICO: MODAL PILARES --- */
+.box-pilares .pilares-list {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.box-pilares .pilar-item {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding: 40px 0;
+    border-top: 1px solid rgba(0, 133, 255, 0.2);
+}
+
+.box-pilares .pilar-item:first-child {
+    border-top: none;
+}
+
+.box-pilares .pilar-item:last-child {
+    border-bottom: 1px solid rgba(0, 133, 255, 0.2);
+}
+
+.box-pilares .pilar-circle {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-pilares .pilar-circle i {
+    color: white;
+    font-size: 28px;
+}
+
+.box-pilares .pilar-content h3 {
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.box-pilares .pilar-content p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* RODAPÉ */
 .bottom-bar { 
     background: var(--blue); 
-    height: 40px; 
+    height: 10px; 
     width: 100%;
     margin-top: auto; 
     flex-shrink: 0;
-    position: relative;
-    z-index: 1; /* Garante que fique sob a scrollbar flutuante */
 }
 
-/* RESPONSIVIDADE */
+/* RESPONSIVIDADE GERAL */
 @media (max-width: 768px) {
     .presentation-container { padding: 20px; flex-direction: column; align-items: center; }
     .grid-section { grid-template-columns: 1fr; width: 100%; }
     .avatar-wrapper { width: 180px; height: 180px; margin: 0 auto 20px auto; }
     .profile-section { text-align: center; }
+    .social-links { justify-content: center; }
+    
+    .modal-box {
+        padding: 80px 25px 40px 25px;
+    }
+
+    .box-pilares .pilar-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .btn-voltar, .btn-voltar-modal {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
