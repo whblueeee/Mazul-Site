@@ -195,7 +195,7 @@ body {
     color: var(--navy);
 }
 
-.blue .card-content { background-color: var(--blue); }
+.blue .card-content { background-color: #017EDA; }
 .navy .card-content { background-color: var(--navy); }
 .red .card-content { background-color: var(--red); }
 .dark .card-content { background-color: var(--dark); }
@@ -320,9 +320,9 @@ body {
     }
 
     .modal-box {
-        padding: 40px 25px;
+        padding: 60px 30px;
         width: 100%;
-        border-radius: 30px;
+        border-radius: 50px;
     }
 
     .modal-title { font-size: 1.8rem; }
