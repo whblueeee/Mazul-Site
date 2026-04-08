@@ -453,7 +453,7 @@ body {
     }
     .modal-overlay::-webkit-scrollbar { display: none; }
 
-    .modal-box { padding: 40px 15px; width: 100%; border-radius: 30px; }
+    .modal-box { padding: 40px 50px; width: 100%; border-radius: 30px; }
 
     .nav-btn, .carousel-tabs, .carousel-dots { display: none !important; }
 
