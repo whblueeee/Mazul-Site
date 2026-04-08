@@ -304,6 +304,116 @@ body {
 .box-pilares .pilar-content h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
 .box-pilares .pilar-content p { font-size: 1rem; color: #444; line-height: 1.6; }
 
+/* --- CARROSSEL DE INVESTIMENTO --- */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 10px; /* Respiro para as setas no mobile */
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 30px;
+    border: 1.5px solid #A0D2FF;
+    background: white;
+}
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-card {
+    min-width: 100%;
+    padding: 40px;
+    background: white;
+}
+
+.card-inner-box {
+    text-align: left;
+}
+
+.plan-title {
+    color: var(--blue);
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.plan-tagline {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.plan-details p {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.plan-details strong {
+    color: var(--dark);
+}
+
+/* BOTÃO DENTRO DO CARD */
+.btn-conferir {
+    margin-top: 30px;
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--blue);
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.nav-btn.prev { left: -55px; }
+.nav-btn.next { right: -55px; }
+
+.nav-btn:hover { color: var(--navy); transform: translateY(-50%) scale(1.2); }
+
+/* Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #DDEBFF; /* Azul suave inativo */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dot.active {
+    background-color: var(--blue);
+    width: 28px; /* Efeito pílula para o slide atual */
+    border-radius: 10px;
+}
 /* RODAPÉ */
 .bottom-bar { 
     background: var(--blue); 
@@ -320,6 +430,15 @@ body {
     .avatar-wrapper { width: 180px; height: 180px; margin: 0 auto 20px auto; }
     .profile-section { text-align: center; }
     .social-links { justify-content: center; }
+        .carousel-container { max-width: 100%; }
+    .carousel-card { padding: 30px 20px; }
+    .nav-btn { font-size: 35px; }
+.nav-btn.prev { left: 5px; background: rgba(255,255,255,0.8); border-radius: 50%; }
+    .nav-btn.next { right: 5px; background: rgba(255,255,255,0.8); border-radius: 50%; }
+    .modal-box { padding: 60px 20px; }
+}
+    .plan-title { font-size: 1.6rem; }
+
 
     .modal-overlay {
         padding: 80px 15px 40px 15px; /* Mantém a margem da caixa no mobile */
@@ -352,4 +471,3 @@ body {
     }
 
     .box-pilares .pilar-item { padding: 25px 0; gap: 15px; }
-}

@@ -129,18 +129,74 @@
         </div>
     </div>
 
-    <!-- POP-UP 2: ORÇAMENTO -->
-    <div id="modal-orcamento" class="modal-overlay">
-        <div class="modal-box">
-            <button class="btn-voltar" onclick="closeModal('modal-orcamento')">
-                <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
-            </button>        
-            <img src="logo-mazul.png" alt="Logo" class="logo-modal">
-            <h2 class="modal-title">Opções de Orçamento</h2>
-            <p class="modal-subtitle">Confira abaixo os pacotes personalizados para sua necessidade.</p>
-            <!-- Conteúdo de orçamento aqui -->
+<!-- POP-UP 2: ORÇAMENTO -->
+<div id="modal-orcamento" class="modal-overlay">
+    <div class="modal-box">
+        <button class="btn-voltar" onclick="closeModal('modal-orcamento')">
+            <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
+        </button>
+
+        <div class="modal-header">
+            <h2 class="modal-title">Opções de Investimento</h2>
+            <p class="modal-subtitle">Soluções flexíveis de investimento para integrar o design estratégico à rotina da Brasil Tecpar.</p>
         </div>
-    </div>
+
+        <!-- CONTAINER DO CARROSSEL -->
+        <div class="carousel-container">
+            <!-- Setas Triângulo -->
+            <button class="nav-btn prev" onclick="moveSlide(-1)">
+                <i class='bx bxs-left-arrow'></i>
+            </button>
+            
+            <div class="carousel-track-container">
+                <div class="carousel-track" id="carouselTrack">
+                    
+                    <!-- CARD 1 -->
+                    <div class="carousel-card">
+                        <div class="card-inner-box">
+                            <h3 class="plan-title">On-Demand</h3>
+                            <p class="plan-tagline">Para necessidades isoladas e sem urgência.</p>
+                            <div class="plan-details">
+                                <p><strong>Escopo:</strong> Criação de peças gráficas avulsas.</p>
+                                <p><strong>Fluxo:</strong> Orçamento e aprovação por peça.</p>
+                                <p><strong>Antecedência:</strong> Mínimo de 5 dias úteis.</p>
+                                <p><strong>Prazo:</strong> Média de 72h a 120h úteis.</p>
+                                <p><strong>Investimento:</strong> Conforme Tabela Unitária.</p>
+                            </div>
+                            <button class="btn-conferir">Conferir Tabela</button>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="carousel-card">
+                        <div class="card-inner-box">
+                            <h3 class="plan-title">Fee Mensal</h3>
+                            <p class="plan-tagline">Para demandas recorrentes e prioridade total.</p>
+                            <div class="plan-details">
+                                <p><strong>Escopo:</strong> Design fixo mensal com horas dedicadas.</p>
+                                <p><strong>Fluxo:</strong> Canal direto e prioridade na fila.</p>
+                                <p><strong>Prazo:</strong> Entrega agilizada em até 48h.</p>
+                                <p><strong>Investimento:</strong> Valor fixo mensal sob contrato.</p>
+                            </div>
+                            <button class="btn-conferir">Solicitar Proposta</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <button class="nav-btn next" onclick="moveSlide(1)">
+                <i class='bx bxs-right-arrow'></i>
+            </button>
+
+            <!-- Indicadores (Dots) -->
+            <div class="carousel-dots" id="carouselDots">
+                <span class="dot active" onclick="currentSlideTo(0)"></span>
+                <span class="dot" onclick="currentSlideTo(1)"></span>
+            </div>
+        </div> <!-- Fim carousel-container -->
+    </div> <!-- Fim modal-box -->
+</div> <!-- Fim modal-overlay -->
 
     <!-- POP-UP 3: SERVIÇOS -->
     <div id="modal-servicos" class="modal-overlay">

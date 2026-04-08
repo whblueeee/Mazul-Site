@@ -62,3 +62,39 @@ document.addEventListener('keydown', (event) => {
         });
     }
 });
+
+let currentSlide = 0;
+
+function updateDots() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+    });
+}
+
+function moveSlide(direction) {
+    const track = document.getElementById('carouselTrack');
+    const cards = document.querySelectorAll('.carousel-card');
+    const totalSlides = cards.length;
+
+    currentSlide += direction;
+
+    if (currentSlide < 0) {
+        currentSlide = totalSlides - 1;
+    } else if (currentSlide >= totalSlides) {
+        currentSlide = 0;
+    }
+
+    const offset = -currentSlide * 100;
+    track.style.transform = `translateX(${offset}%)`;
+    updateDots();
+}
+
+// Função para clicar direto no pontinho
+function currentSlideTo(index) {
+    const track = document.getElementById('carouselTrack');
+    currentSlide = index;
+    const offset = -currentSlide * 100;
+    track.style.transform = `translateX(${offset}%)`;
+    updateDots();
+}
