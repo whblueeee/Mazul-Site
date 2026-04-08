@@ -453,7 +453,7 @@ body {
     }
     .modal-overlay::-webkit-scrollbar { display: none; }
 
-    .modal-box { padding: 60px 60px; width: 100%; border-radius: 30px; }
+    .modal-box { padding: 40px 40px; width: 100%; border-radius: 30px; }
 
     .nav-btn, .carousel-tabs, .carousel-dots { display: none !important; }
 
@@ -466,7 +466,7 @@ body {
     /* Transformando cada card em uma BOX igual ao desktop */
     .carousel-card {
         min-width: 100%;
-        padding: 30px 20px;
+        padding: 30px 30px;
         background: white;
         border: 1.5px solid #A0D2FF; /* Borda azul aplicada individualmente */
         border-radius: 30px;
