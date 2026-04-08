@@ -11,11 +11,15 @@
 <body>
 
     <!-- OVERLAY DE VÍDEO INTRO -->
-    <div id="intro-overlay">
-        <video id="intro-video" autoplay muted playsinline>
-            <source src="video.mp4" type="video/mp4">
-        </video>
-    </div>
+<div id="intro-overlay">
+    <video id="intro-video" autoplay muted playsinline>
+        <!-- Vídeo para telas maiores que 768px -->
+        <source src="video.mp4" type="video/mp4" media="(min-width: 769px)">
+        <!-- Vídeo para telas menores que 768px -->
+        <source src="video-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+        Seu navegador não suporta vídeos.
+    </video>
+</div>
 
     <!-- CABEÇALHO -->
     <header class="top-nav">
