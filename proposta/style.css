@@ -328,7 +328,7 @@ body {
     .modal-box {
         padding: 60px 30px;
         width: 100%;
-        border-radius: 50px;
+        border-radius: 30px;
     }
 
     .modal-title { font-size: 1.8rem; }
