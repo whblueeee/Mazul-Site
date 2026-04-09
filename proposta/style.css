@@ -550,6 +550,11 @@ body {
 .plan-info span { display: block; font-size: 0.85rem; color: #666; }
 .plan-info strong { font-size: 1.1rem; color: var(--blue); }
 
+.plan-options.triple {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Três colunas iguais */
+    gap: 10px;
+}
 /* Categorias e Itens */
 .services-category h5 {
     background: #f8f9fa;
@@ -737,4 +742,7 @@ body {
         font-size: 0.95rem;
     }
     .plan-options { grid-template-columns: 1fr; }
+    .plan-options.triple {
+        grid-template-columns: 1fr;
+    }
     .calc-summary { flex-direction: column; gap: 20px; text-align: center; }
