@@ -159,3 +159,23 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateTotal();
     }
 });
+
+function abrirTabelaAvulsa() {
+    // 1. Abre o modal de serviços
+    openModal('modal-servicos');
+
+    // 2. Garante que a opção "Sem Plano" (valor 0) esteja marcada
+    const radioAvulso = document.querySelector('input[name="base_plan"][value="0"]');
+    if (radioAvulso) {
+        radioAvulso.checked = true;
+    }
+
+    // 3. Reseta as quantidades para 0 (evita lixo de seleções anteriores)
+    const inputs = document.querySelectorAll('.qty-input');
+    inputs.forEach(input => {
+        input.value = 0;
+    });
+
+    // 4. Força o cálculo para o rodapé exibir R$ 0,00 e o texto correto
+    calculateTotal();
+}
