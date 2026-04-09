@@ -33,6 +33,16 @@ function openModal(id) {
     modal.scrollTop = 0;
 }
 
+function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    modal.scrollTop = 0;
+
+    // Adiciona o estado no histórico para o celular interceptar
+    history.pushState({ modalAberto: true }, "");
+}
+
 function closeModal(id) {
     const modal = document.getElementById(id);
     modal.style.display = 'none';
@@ -49,7 +59,22 @@ window.onclick = function(event) {
         document.body.style.overflow = 'auto';
     }
 };
+// Captura o gesto de voltar do celular
+window.onpopstate = function(event) {
+    const modals = document.querySelectorAll('.modal-overlay');
+    let algumAberto = false;
 
+    modals.forEach(modal => {
+        if (modal.style.display === 'flex') {
+            modal.style.display = 'none';
+            algumAberto = true;
+        }
+    });
+
+    if (algumAberto) {
+        document.body.style.overflow = 'auto';
+    }
+};
 // Fechar ao apertar a tecla 'Esc'
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
