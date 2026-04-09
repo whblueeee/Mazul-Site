@@ -588,6 +588,39 @@ body {
     text-align: center;
     font-weight: bold;
 }
+.btn-download-specs {
+    display: flex; /* Alterado para flex para facilitar o alinhamento interno */
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo dentro da pílula */
+    gap: 8px;
+    
+    /* Centralização do botão na página */
+    margin: 10px auto 0 auto; 
+    width: fit-content; /* Garante que a pílula não ocupe a largura toda */
+
+    /* Estilo Pílula */
+    background-color: var(--blue); 
+    padding: 8px 20px;
+    border-radius: 50px; /* Cria o formato de pílula */
+    
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: 0.3s;
+    border: 1px solid transparent; /* Substituído o border-bottom por borda completa */
+}
+
+.btn-download-specs i {
+    font-size: 1rem;
+}
+
+.btn-download-specs:hover {
+    color: #ffffff;
+    background-color: var(--blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 /* Resumo Final */
 .calc-summary {
