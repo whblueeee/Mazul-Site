@@ -1,0 +1,748 @@
+:root {
+    --blue: #017EDA;
+    --navy: #0A1128;
+    --red: #ff413e;
+    --dark: #1C2321;
+    --bg-light: #F2F2F2;
+    --header-grey: #F5F5F5;
+}
+
+/* 1. CONFIGURAÇÃO DA BARRA DE ROLAGEM GLOBAL */
+html {
+    scrollbar-gutter: stable;
+    background-color: var(--bg-light);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--navy);
+}
+
+/* 2. ESTRUTURA GLOBAL */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: sans-serif; 
+}
+
+body { 
+    background-color: var(--bg-light); 
+    overflow-x: hidden;
+    display: flex; 
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Intro Video */
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Evita qualquer barra de rolagem durante a intro */
+}
+
+#intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz o vídeo se comportar como um background, preenchendo tudo */
+}
+
+/* HEADER */
+.top-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-bar {
+    width: 100%;
+    background-color: var(--header-grey);
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.logo-central {
+    height: 50px;
+}
+
+/* BADGE */
+.info-badge-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 30px 40px 10px 40px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.info-badge {
+    display: inline-flex;
+    border: 1px solid var(--blue);
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.badge-blue {
+    background-color: var(--blue);
+    color: white;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.badge-white {
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--blue);
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+/* LAYOUT DE APRESENTAÇÃO */
+.presentation-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-section { flex: 1; min-width: 300px; text-align: left; }
+
+.avatar-wrapper {
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.avatar-img { width: 100%; height: 100%; object-fit: cover; }
+
+.profile-text h1 { font-size: 2.2rem; margin-bottom: 15px; color: var(--navy); }
+.profile-text p { color: #555; line-height: 1.6; font-size: 1.1rem; }
+
+/* SOCIAL LINKS */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: #555;
+    font-size: 28px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--blue);
+    transform: translateY(-3px);
+}
+
+/* GRID DE CARDS */
+.grid-section {
+    flex: 1.2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    min-width: 320px;
+}
+
+.card {
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
+.card-content { height: 160px; display: flex; justify-content: center; align-items: center; }
+.card-content img { width: 100px; height: auto; }
+
+.card-footer {
+    background: white;
+    padding: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--navy);
+}
+
+.blue .card-content { background-color: #017EDA; }
+.navy .card-content { background-color: #00053E; }
+.red .card-content { background-color: #ff413e; }
+.dark .card-content { background-color: #1c1c1c; }
+
+/* --- SISTEMA DE MODAIS (CORREÇÃO DE ROLAGEM E MARGEM) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    z-index: 10000;
+    justify-content: center;
+    align-items: flex-start; 
+    overflow-y: scroll; /* Barra no canto da tela */
+    padding: 100px 20px 40px 20px; /* Padding superior garante espaço para o botão */
+}
+
+.modal-box {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+    padding: 60px 100px;
+    border-radius: 40px;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* BOTÃO VOLTAR (DESKTOP) */
+.btn-voltar {
+    position: absolute;
+    top: -65px; 
+    left: 0;
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10001;
+    transition: all 0.3s ease;
+}
+
+.btn-voltar i { display: none; font-size: 24px; } /* Esconde seta no desktop */
+.btn-voltar span { display: block; } /* Mostra texto no desktop */
+
+.btn-voltar:hover {
+    background-color: var(--navy);
+    transform: translateY(-2px);
+}
+
+.modal-title { 
+    color: var(--blue); 
+    margin-bottom: 15px; 
+    font-size: 2.2rem; 
+    text-align: center; 
+}
+
+.modal-subtitle { 
+    color: #666; 
+    margin-bottom: 40px; 
+    line-height: 1.6; 
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+/* --- DESIGN ESPECÍFICO: MODAL PILARES --- */
+.box-pilares .pilares-list {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.box-pilares .pilar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 30px 0;
+    border-top: 1px solid rgba(0, 133, 255, 0.1);
+}
+
+.box-pilares .pilar-item:first-child { border-top: none; }
+.box-pilares .pilar-item:last-child { border-bottom: 1px solid rgba(0, 133, 255, 0.2); }
+
+.box-pilares .pilar-circle {
+    width: 50px; height: 50px;
+    min-width: 50px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center; align-items: center;
+}
+
+.box-pilares .pilar-circle i { color: white; font-size: 28px; }
+.box-pilares .pilar-content h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
+.box-pilares .pilar-content p { font-size: 1rem; color: #444; line-height: 1.6; }
+
+/* Estilo Base da Lista (Igual ao de Pilares) */
+.pilares-list {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.pilar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 25px 0;
+    border-top: 1px solid rgba(0, 133, 255, 0.1);
+}
+
+.pilar-item:first-child { border-top: none; }
+
+.pilar-circle {
+    width: 50px; 
+    height: 50px;
+    min-width: 50px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.pilar-circle i { 
+    color: white; 
+    font-size: 26px; 
+}
+
+.pilar-content h3 { 
+    font-size: 1.2rem; 
+    color: var(--navy); 
+    margin-bottom: 5px; 
+}
+
+.pilar-content p { 
+    font-size: 1rem; 
+    color: #444; 
+    line-height: 1.5; 
+}
+
+/* --- CARROSSEL DE INVESTIMENTO --- */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 10px; /* Respiro para as setas no mobile */
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 30px;
+    border: 1.5px solid #A0D2FF;
+    background: white;
+}
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-card {
+    min-width: 100%;
+    padding: 40px;
+    background: white;
+}
+.carousel-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.tab-item {
+    padding: 10px 22px;
+    border-radius: 100px;
+    border: none;
+    background: #E2E8F0; /* Cinza claro da imagem */
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-item.active {
+    background: var(--blue);
+    color: white;
+}
+.card-inner-box {
+    text-align: left;
+}
+
+.plan-title {
+    color: var(--blue);
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.plan-tagline {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.plan-details p {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.plan-details strong {
+    color: var(--dark);
+}
+
+/* BOTÃO DENTRO DO CARD */
+/* --- Novo Estilo do Mostrador de Preço --- */
+.card-preco-wrapper {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.price-pill {
+    background-color: var(--blue); /* Usa sua variável de cor */
+    color: white;
+    font-size: 0.9rem; /* Tamanho equilibrado (aprox 24px) */
+    padding: 10px 35px; /* Reduzi o preenchimento */
+    border-radius: 100px; /* Garante o formato de pílula */
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap; /* Impede o número de quebrar linha */
+}
+
+.price-unit {
+    color: var(--blue);
+    font-size: 0.7rem; /* Pequeno e discreto */
+    font-weight: 700;
+    margin-top: 4px;
+    /* Alinhamento à direita da pílula */
+    align-self: center; 
+    transform: translateX(40px); /* Ajusta para parecer "pendurado" na direita */
+}
+.btn-conferir2 {
+    margin-top: 70px;
+    background:#ff413e;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 100px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--blue);
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.nav-btn.prev { left: -55px; }
+.nav-btn.next { right: -55px; }
+
+.nav-btn:hover { color: var(--navy); transform: translateY(-50%) scale(1.2); }
+
+/* Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #DDEBFF; /* Azul suave inativo */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dot.active {
+    background-color: var(--blue);
+    width: 28px; /* Efeito pílula para o slide atual */
+    border-radius: 10px;
+}
+/* Container da Calculadora */
+.calculator-container {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.section-title {
+    color: var(--navy);
+    font-size: 1.1rem;
+    margin: 25px 0 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Planos */
+.plan-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.plan-card {
+    border: 2px solid #E2E8F0;
+    padding: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    background: white;
+}
+
+.plan-card input { position: absolute; opacity: 0; }
+
+.plan-card:has(input:checked) {
+    border-color: var(--blue);
+    background: #F0F7FF;
+}
+
+.plan-info span { display: block; font-size: 0.85rem; color: #666; }
+.plan-info strong { font-size: 1.1rem; color: var(--blue); }
+
+.plan-options.triple {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Três colunas iguais */
+    gap: 10px;
+}
+/* Categorias e Itens */
+.services-category h5 {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--blue);
+    margin: 25px 0 10px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.service-text span { font-weight: 600; color: var(--navy); display: block; }
+.service-text small { color: #888; font-size: 0.8rem; }
+
+.service-action { display: flex; align-items: center; gap: 12px; }
+
+.price-tag {
+    font-weight: bold;
+    color: var(--blue);
+    font-size: 0.9rem;
+}
+
+.qty-input {
+    width: 55px;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-weight: bold;
+}
+.btn-download-specs {
+    display: flex; /* Alterado para flex para facilitar o alinhamento interno */
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo dentro da pílula */
+    gap: 8px;
+    
+    /* Centralização do botão na página */
+    margin: 10px auto 0 auto; 
+    width: fit-content; /* Garante que a pílula não ocupe a largura toda */
+
+    /* Estilo Pílula */
+    background-color: var(--blue); 
+    padding: 8px 20px;
+    border-radius: 50px; /* Cria o formato de pílula */
+    
+    color: rgba(255, 255, 255, 0.988);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: 0.3s;
+    border: 1px solid transparent; /* Substituído o border-bottom por borda completa */
+}
+
+.btn-download-specs i {
+    font-size: 1rem;
+}
+
+.btn-download-specs:hover {
+    color: #ffffff;
+    background-color: var(--blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Resumo Final */
+.calc-summary {
+    background: var(--navy);
+    color: white;
+    padding: 25px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+}
+
+#total-display { font-size: 1.8rem; color: #fff; margin: 0; }
+#summary-text { font-size: 0.9rem; opacity: 0.8; margin-bottom: 5px; }
+
+
+/* RODAPÉ */
+.bottom-bar { 
+    background: var(--blue); 
+    height: 10px; 
+    width: 100%;
+    margin-top: auto; 
+    flex-shrink: 0;
+}
+
+/* --- RESPONSIVIDADE (Mobile) --- */
+@media (max-width: 768px) {
+    .modal-overlay {
+        padding: 80px 15px 40px 15px; 
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .modal-overlay::-webkit-scrollbar { display: none; }
+
+    .modal-box {
+        padding: 40px 20px; 
+        width: 100%;
+        border-radius: 30px;
+    }
+
+    /* ESCONDE CONTROLES NO MOBILE */
+    .nav-btn, .carousel-tabs, .carousel-dots { 
+        display: none !important; 
+    }
+
+    .carousel-track-container {
+        overflow: visible; 
+        border: none;
+        background: transparent;
+    }
+
+    .carousel-track {
+        display: flex;
+        flex-direction: column !important; /* Força empilhar no mobile */
+        gap: 20px;
+        transform: none !important;
+    }
+
+    .carousel-card {
+        min-width: 100%;
+        padding: 30px 15px; 
+        background: white;
+        border: 1.5px solid #A0D2FF;
+        border-radius: 30px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    /* Botão Voltar Mobile */
+    .btn-voltar {
+        top: -60px; left: 0; width: 45px; height: 45px;
+        padding: 0; border-radius: 50%; justify-content: center;
+    }
+    .btn-voltar span { display: none; }
+    .btn-voltar i { display: block; font-size: 28px; margin: 0; }
+
+    /* AJUSTES DE LAYOUT GERAL NO MOBILE */
+    .presentation-container { padding: 20px; flex-direction: column; align-items: center; }
+    .grid-section { grid-template-columns: 1fr; width: 100%; }
+    .avatar-wrapper { width: 180px; height: 180px; margin: 0 auto 20px auto; }
+    .profile-section { text-align: center; }
+    .social-links { justify-content: center; }
+    .modal-title { font-size: 1.5rem; }
+    .plan-title { font-size: 1.4rem; }
+}
+.price-pill {
+        font-size: 1.2rem; /* Diminui ainda mais no celular */
+        padding: 8px 25px;
+    }
+    .price-unit {
+        font-size: 0.8rem;
+        transform: translateX(30px);
+    }
+    .pilar-item {
+        gap: 15px;
+        padding: 20px 0;
+    }
+    
+    .pilar-circle {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+    }
+    
+    .pilar-circle i {
+        font-size: 20px;
+    }
+
+    .pilar-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .pilar-content p {
+        font-size: 0.95rem;
+    }
+    .plan-options { grid-template-columns: 1fr; }
+    .plan-options.triple {
+        grid-template-columns: 1fr;
+    }
+    .calc-summary { flex-direction: column; gap: 20px; text-align: center; }

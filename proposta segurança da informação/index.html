@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Proposta de Orçamento | Mazul Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- OVERLAY DE VÍDEO INTRO -->
+<div id="intro-overlay">
+    <video id="intro-video" autoplay muted playsinline>
+        <!-- Vídeo para telas maiores que 768px -->
+        <source src="brasil e mazul desktop.mp4" type="video/mp4" media="(min-width: 769px)">
+        <!-- Vídeo para telas menores que 768px -->
+        <source src="brasil e mazul mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+        Seu navegador não suporta vídeos.
+    </video>
+</div>
+
+    <!-- CABEÇALHO -->
+    <header class="top-nav">
+        <div class="logo-bar">
+            <img src="logo1.png" alt="Mazul" class="logo-central">
+        </div>
+        <div class="info-badge-container">
+            <div class="info-badge">
+                <span class="badge-blue">Proposta de Orçamento</span>
+                <span class="badge-white">Segurança da Informação + Mazul Design</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="presentation-container">
+        <!-- SEÇÃO DE PERFIL -->
+        <section class="profile-section">
+            <div class="avatar-wrapper">
+                <img src="marcella.jpg.png" alt="Marcella" class="avatar-img">
+            </div>
+            <div class="profile-text">
+                <h1>Olá, vamos começar?</h1>
+                <p>Eu sou a Marcella Mazul, sua futura designer! Meu foco é resolver demandas com agilidade e garantir que toda a comunicação visual de vocês tenha unidade e impacto.
+Sinta-se à vontade para navegar pelos detalhes desta proposta e escolher por onde quer começar. Será um prazer fazer parte da Brasil Tecpar!</p>
+            </div>
+            <div class="social-links-container">
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mazuldesign/" target="_blank" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://www.tiktok.com/@mazuldesign" target="_blank" aria-label="TikTok"><i class='bx bxl-tiktok'></i></a>
+                    <a href="https://www.behance.net/marcellamoura1" target="_blank" aria-label="Behance"><i class='bx bxl-behance'></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=5534996571957&text&type=phone_number&app_absent=0" target="_blank" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRID DE CARDS -->
+        <section class="grid-section">
+            <!-- CARD 1 -->
+            <div class="card blue" onclick="openModal('modal-pilares')">
+                <div class="card-content">
+                    <img src="pilares.png" alt="Ícone">
+                </div>
+                <div class="card-footer">Pilares de Parceria</div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="card navy" onclick="openModal('modal-orcamento')">
+                <div class="card-content">
+                    <img src="orçamento.png" alt="Ícone">
+                </div>
+                <div class="card-footer">Opções de Investimento</div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="card red" onclick="openModal('modal-servicos')">
+                <div class="card-content">
+                    <img src="tabela.png" alt="Ícone">
+                </div>
+                <div class="card-footer">Tabela de Serviços</div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="card dark" onclick="openModal('modal-termos')">
+                <div class="card-content">
+                    <img src="termos e condições.png" alt="Ícone">
+                </div>
+                <div class="card-footer">Termos e Condições</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bottom-bar"></footer>
+
+    <!-- POP-UP 1: PILARES -->
+    <div id="modal-pilares" class="modal-overlay">
+        <div class="modal-box box-pilares">
+            <button class="btn-voltar" onclick="closeModal('modal-pilares')">
+                <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
+            </button>    
+            <div class="modal-header">
+                <h2 class="modal-title">Pilares de Parceria</h2>
+                <p class="modal-subtitle">Design estratégico focado em agilidade e integração total com o time Brasil TecPar.</p>
+            </div>
+
+            <div class="pilares-list">
+                <div class="pilar-item">
+                    <div class="pilar-circle"><i class='bx bxs-component'></i></div>
+                    <div class="pilar-content">
+                        <h3>Workflow Flexível</h3>
+                        <p>Adaptação completa às ferramentas de gestão da Brasil TecPar (Jira, Planner, Trello, etc). Me adapto ao fluxo que já funciona para o seu time.</p>
+                    </div>
+                </div>
+                <div class="pilar-item">
+                    <div class="pilar-circle"><i class='bx bxs-chat'></i></div>
+                    <div class="pilar-content">
+                        <h3>Comunicação Fluida</h3>
+                        <p>Canal aberto via WhatsApp, E-mail e Google Meet para alinhamentos rápidos.</p>
+                    </div>
+                </div>
+                <div class="pilar-item">
+                    <div class="pilar-circle"><i class='bx bxs-cloud-upload'></i></div>
+                    <div class="pilar-content">
+                        <h3>Gestão de Assets</h3>
+                        <p>Histórico de projetos sempre acessível e padronizado via Google Drive.</p>
+                    </div>
+                </div>
+                <div class="pilar-item">
+    <div class="pilar-circle">
+        <i class='bx bx-fingerprint'></i>
+    </div>
+    <div class="pilar-content">
+        <h3>Custódia da Identidade Visual</h3>
+        <p>Garantia técnica de que <strong>100% das entregas</strong> respeitarão rigorosamente o guia de marca, preservando a unidade e a autoridade visual da empresa em todos os pontos de contato.</p>
+    </div>
+</div>
+
+<!-- Item: Design com Foco em Funcionalidade -->
+<div class="pilar-item">
+    <div class="pilar-circle">
+        <i class='bx bx-target-lock'></i>
+    </div>
+    <div class="pilar-content">
+        <h3>Design com Foco em Funcionalidade</h3>
+        <p>Alinhamento total aos valores corporativos, traduzindo conceitos complexos em <strong>soluções visuais práticas</strong>, claras e orientadas a resultados.</p>
+    </div>
+</div>
+
+<!-- Item: Mindset de Inovação & Tecnologia -->
+<div class="pilar-item">
+    <div class="pilar-circle">
+        <i class='bx bx-chip'></i>
+    </div>
+    <div class="pilar-content">
+        <h3>Mindset de Inovação & Tecnologia</h3>
+        <p>Design conectado às tendências globais, garantindo uma <strong>estética moderna e inovadora</strong> que reflete a visão de futuro da Brasil Tecpar.</p>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+
+<!-- POP-UP 2: ORÇAMENTO -->
+<div id="modal-orcamento" class="modal-overlay">
+    <div class="modal-box">
+        <button class="btn-voltar" onclick="closeModal('modal-orcamento')">
+            <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
+        </button>
+
+        <div class="modal-header">
+            <h2 class="modal-title">Opções de Investimento</h2>
+            <p class="modal-subtitle">Soluções flexíveis de investimento para integrar o design estratégico à rotina da Brasil Tecpar, com previsibilidade de custos e prioridade de entrega.</p>
+        </div>
+
+        <!-- ABAS DE NAVEGAÇÃO -->
+        <div class="carousel-tabs">
+            <button class="tab-item active" onclick="currentSlideTo(0)">On - Demand</button>
+            <button class="tab-item" onclick="currentSlideTo(1)">Essencial</button>
+            <button class="tab-item" onclick="currentSlideTo(2)">Imersão</button>
+        </div>
+
+        <div class="carousel-container">
+            <!-- Setas internas -->
+            <button class="nav-btn prev" onclick="moveSlide(-1)"><i class='bx bxs-left-arrow'></i></button>
+            <button class="nav-btn next" onclick="moveSlide(1)"><i class='bx bxs-right-arrow'></i></button>            
+            
+            <div class="carousel-track-container">
+                <div class="carousel-track" id="carouselTrack">
+                    
+                    <!-- CARD 1 -->
+                    <div class="carousel-card">
+                        <div class="card-inner-box">
+                            <h3 class="plan-title">On-Demand</h3>
+                            <p class="plan-tagline">Para necessidades isoladas e sem urgência.</p>
+                            <div class="plan-details">
+                                <p><strong>Escopo:</strong> Criação de peças gráficas avulsas.</p>
+                                <p><strong>Fluxo:</strong> Requer abertura de orçamento e aprovação financeira para cada nova peça.</p>
+                                <p><strong>Antecedência do Briefing:</strong> Mínimo de 5 dias úteis.</p>
+                                <p><strong>Prazo de Entrega:</strong> Média de 48h a 168h úteis.</p> 
+                                <p><strong>Investimento:</strong> Conforme Tabela de Serviços Unitários.</p>
+                            </div>
+                            <button class="btn-conferir2" onclick="abrirTabelaAvulsa()">Conferir Tabela</button>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="carousel-card">
+                        <div class="card-inner-box">
+                            <h3 class="plan-title">Essencial</h3>
+                            <p class="plan-tagline">Foco em padronização visual e suporte básico para o Onboarding.</p>
+                            <div class="plan-details">
+                                <p><strong>Identidade Visual(Simples):</strong> Criação de logotipo simples, conceito visual, definição de paleta de cores e tipografia de apoio.</p>
+                                <p><strong>Template de Apresentação:</strong> Desenvolvimento de Master Slides editáveis (PPT/Google Slides).</p>
+                                <p><strong>Digital Assets: </strong> Criação de 1 digital assets como cabeçalhos de e-mail e assinaturas digitais.</p>
+                                <p><strong>Layout de Card (1 unidade):</strong> Peça gráfica para comunicado interno.</p>
+                                <p><strong>SLA de Entrega:</strong> Até 10 dias úteis para o conceito e 48h úteis para os desdobramentos de peças estáticas.</p>
+                                <p><strong>Apoio em Peças Extras:</strong> Acesso à tabela de demandas unitárias com 15% de desconto para este pacote.</p>
+                            </div>
+                            <div class="card-preco-wrapper">
+                                <div class="price-pill">R$ 3.400,00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="carousel-card">
+                        <!-- Adicionei o card-inner-box aqui para manter o padrão visual dos outros -->
+                        <div class="card-inner-box">
+                            <h3 class="plan-title">Imersão</h3>
+                            <p class="plan-tagline">Foco em alta tecnologia, exclusividade e experiência de marca de alto impacto.</p>
+                            <div class="plan-details">
+                                <p><strong>Template de Apresentação:</strong> Desenvolvimento de Master Slides editáveis (PPT/Google Slides).</p>
+                                <p><strong>Layout de Cards (3 unidades):</strong> Peças gráficas para comunicados internos.</p>
+                                <p><strong>Identidade Visual Completa:</strong> Logotipo do programa + Manual de Identidade Visual detalhado + Pattern (estampa) e Ilustrações exclusivas para a marca interna + Variações e Animação de logo + Guia de uso da Identidade Visual.</p>
+                                <p><strong>Digital Assets:</strong> Criação de até 3 digital assets como cabeçalhos de e-mail, assinaturas digitais e backgrounds para videochamadas.</p>
+                                <p><strong>SLA Prioritário:</strong> Gestão de projeto dedicada com entrega total em até 20 dias úteis.</p>
+                            </div>
+                            <div class="card-preco-wrapper">
+                                <div class="price-pill">R$ 4.800,00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Dots agora fora do container das setas para não bugar o alinhamento -->
+        <div class="carousel-dots" id="carouselDots">
+            <span class="dot active" onclick="currentSlideTo(0)"></span>
+            <span class="dot" onclick="currentSlideTo(1)"></span>
+            <span class="dot" onclick="currentSlideTo(2)"></span>
+        </div>
+    </div>
+</div>
+    <!-- POP-UP 3: SERVIÇOS -->
+<div id="modal-servicos" class="modal-overlay">
+    <div class="modal-box">
+        <button class="btn-voltar" onclick="closeModal('modal-servicos')">
+            <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
+        </button>
+        <h2 class="modal-title">Tabela de Serviços</h2>
+        <p class="modal-subtitle">Selecione um plano ou monte seu pedido com itens avulsos (On-Demand).</p>
+
+        <div class="calculator-container">
+            <!-- 1. ESCOLHA DO MODELO -->
+            <div class="calc-section">
+                <h4 class="section-title"><i class='bx bx-star'></i> 1. Modelo de Contratação</h4>
+                <div class="plan-options">
+                    <label class="plan-card">
+                        <input type="radio" name="base_plan" value="0" data-name="On-Demand" onchange="calculateTotal()">
+                        <div class="plan-info">
+                            <span>Sob Demanda</span>
+                            <strong>Sem Plano</strong>
+                        </div>
+                    </label>
+                    <label class="plan-card">
+                        <input type="radio" name="base_plan" value="3800" data-name="Plano Essencial" onchange="calculateTotal()" checked>
+                        <div class="plan-info">
+                            <span>Plano Essencial</span>
+                            <strong>R$ 3.800</strong>
+                        </div>
+                    </label>
+                    <label class="plan-card">
+            <input type="radio" name="base_plan" value="6920" data-name="Plano Imersão" onchange="calculateTotal()">
+            <div class="plan-info">
+                <span>Imersão</span>
+                <strong>R$ 6.920</strong>
+            </div>
+        </label>
+                </div>
+            </div>
+
+            <!-- 2. LISTAGEM DE SERVIÇOS -->
+            <div class="calc-section">
+                <h4 class="section-title"><i class='bx bx-list-check'></i> 2. Selecione as Demandas</h4>
+                
+                <!-- SEÇÃO 1: GRÁFICOS DE ROTINA -->
+                <div class="services-category">
+                    <h5>Gráficos de Rotina (Fluxo Mensal)</h5>
+                    
+                    <div class="service-item">
+                        <div class="service-text"><span>Card de E-mail / Comunicado</span><small>SLA: 48h úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 350</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="350" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Post Estático (Social Media)</span><small>SLA: 48h úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 280</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="280" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Carrossel (até 6 telas)</span><small>SLA: 72h úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 600</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="600" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Edição de Vídeo Curto (até 1 min)</span><small>SLA: 4 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 750</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="850" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+    <div class="service-text">
+        <span>Digital Assets (Capas/BG/Assinaturas)</span>
+        <small>SLA: 48h úteis</small>
+    </div>
+    <div class="service-action">
+        <span class="price-tag">R$ 250</span>
+        <input type="number" class="qty-input" value="0" min="0" data-price="250" oninput="calculateTotal()">
+    </div>
+</div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Motion/ Gif </span><small>SLA: 72h úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 800</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="800" oninput="calculateTotal()">
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-text"><span>Ajustes de Papelaria (Crachá/Cartão/Adesivos)</span><small>SLA: 48h úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 200</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="200" oninput="calculateTotal()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEÇÃO 2: GRÁFICOS ESTRUTURADOS -->
+                <div class="services-category">
+                    <h5>Gráficos Estruturados</h5>
+                    
+                    <div class="service-item">
+                        <div class="service-text"><span>Identidade Visual Completa</span><small>SLA: 10 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 2.800</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="2800" oninput="calculateTotal()">
+                        </div>
+                    </div>
+ 
+                    <div class="service-item">
+                        <div class="service-text"><span>Identidade Visual Simples</span><small>SLA: 10 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 2.000</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="2000" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Key Art de Campanha (Conceito)</span><small>SLA: 7 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 1.500</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="1500" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Criação de Pattern (Estampa)</span><small>SLA: 5 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 750</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="750" oninput="calculateTotal()">
+                        </div>
+                    </div>
+ <div class="service-item">
+                        <div class="service-text"><span>Apres. Interativa Simples</span><small>SLA: 72h úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 800</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="800" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Apres. Interativa em Código</span><small>SLA: 4 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 1.200</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="1200" oninput="calculateTotal()">
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-text"><span>E-book / Playbook (20 pág)</span><small>SLA: 10 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 1.800</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="1800" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Template de Apresentação </span><small>SLA: 7 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 800</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="800" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Projeto de Envelopamento - PDV</span><small>SLA: 7 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 1.100</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="1100" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-text"><span>Design de Brindes (Kits/Camisetas) </span><small>SLA: 5 dias úteis</small></div>
+                        <div class="service-action">
+                            <span class="price-tag">R$ 650</span>
+                            <input type="number" class="qty-input" value="0" min="0" data-price="650" oninput="calculateTotal()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. RESUMO E CTA -->
+            <div class="calc-summary">
+                <div class="summary-details">
+                    <p id="summary-text">Fee Mensal Selecionado</p>
+                    <p id="desconto-aviso" style="color: #25D366; font-size: 0.75rem; font-weight: bold; margin: 0; display: none;">
+                        ✓ 15% OFF aplicado nos extras
+                    </p>
+                    <h2 id="total-display">R$ 4.800,00</h2>
+                </div>
+            
+            </div>
+            <a href="o dicionário do designer.pdf" download="Dicionario_Designer_Especificacoes" class="btn-download-specs">
+            <i class='bx bx-download'></i> Especificações</a>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+    <!-- POP-UP 4: TERMOS -->
+<!-- MODAL: TERMOS E CONDIÇÕES -->
+<div id="modal-termos" class="modal-overlay">
+    <div class="modal-box">
+        <button class="btn-voltar" onclick="closeModal('modal-termos')">
+            <i class='bx bx-left-arrow-alt'></i> <span>Voltar</span>
+        </button>
+
+        <div class="modal-header">
+            <h2 class="modal-title">Termos e Condições</h2>
+            <p class="modal-subtitle">Diretrizes para garantir a agilidade nas entregas e a transparência na nossa parceria criativa.</p>
+        </div>
+
+        <div class="pilares-list">
+            <!-- Item 1: Rodadas de Alteração -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-refresh'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Rodadas de Alteração</h3>
+                    <p>Estão inclusas até <strong> 03 (três) rodadas de ajustes</strong> por demanda, desde que as solicitações não alterem o escopo inicial do briefing.</p>
+                </div>
+            </div>
+
+            <!-- Item 2: Mudança de Escopo -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-edit-alt'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Mudança de Escopo</h3>
+                    <p>Alterações que desviem da ideia original ou pedidos de refação após a aprovação final serão contabilizados como uma nova demanda no fluxo.</p>
+                </div>
+            </div>
+
+            <!-- Item 3: Contagem de SLA -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-time-five'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Contagem de SLA</h3>
+                    <p>O prazo de entrega inicia apenas após o recebimento do <strong>briefing completo</strong>, incluindo textos finais, referências e arquivos necessários.</p>
+                </div>
+            </div>
+
+            <!-- Item 4: Vigência -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-calendar-check'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Vigência</h3>
+                    <p>Os planos mensais possuem renovação automática. O cancelamento deve ser comunicado com no mínimo <strong>30 dias de antecedência</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Item 5: Pagamento -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-receipt'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Pagamento</h3>
+                    <p>Faturamento fixo mensal via Nota Fiscal. Demandas excedentes serão orçadas e faturadas separadamente, conforme a necessidade.</p>
+                </div>
+            </div>
+
+            <!-- Item 6: Propriedade Intelectual -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-shield-quarter'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Propriedade Intelectual</h3>
+                    <p>Os direitos de uso das peças finais pertencem à <strong>Brasil Tecpar</strong> após a quitação integral do pagamento.</p>
+                </div>
+            </div>
+
+            <!-- Item 7: Portfólio -->
+            <div class="pilar-item">
+                <div class="pilar-circle">
+                    <i class='bx bx-briefcase-alt-2'></i>
+                </div>
+                <div class="pilar-content">
+                    <h3>Uso para Portfólio</h3>
+                    <p>Fica autorizado o uso de projetos estruturados para composição do portfólio da designer, preservando dados sensíveis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
